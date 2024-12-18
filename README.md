@@ -130,4 +130,4 @@ MetaboGlue is a comprehensive toolkit that combines **data-driven** and **struct
 - Optimize molecular generation workflows for drug discovery.
 - Integrate easily into existing pipelines via a RESTful API.
 
-With MetaboGlue, decoding multi-targeting molecule  /metabolites has never been easier!
+
