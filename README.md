@@ -11,6 +11,34 @@
 
 ---
 
+## Features
+
+- **Generative AI Models**: Leverage AI to design and optimize PROTACs and multi-targeting molecules.
+- **Polypharmacology**: Classify molecules based on type and target mapping.
+- **Flexible API**: Easily integrate MetaboGlue into your workflows with a RESTful API powered by FastAPI.
+- **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
+- **Modular Design**: MetaboGlue is built with multiple modules to perform tasks like browsing, annotating, and mapping molecules/metabolites.
+  
+## Installation
+
+### Install from PyPI
+
+```bash
+pip install MetaboGlue
+
+```
+
+### Clone and Install Locally
+
+```bash
+git clone <https://github.com/the-ahuja-lab/MetaboGlue.git>
+cd MetaboGlue
+pip install .
+
+```
+
+
+
 ## Structure-Guided Workflow
 
 MetaboGlue offers a two-part approach:
