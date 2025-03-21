@@ -87,7 +87,7 @@ SynGlue offers a two-part approach:
     - Use the **GCoupler** module to synthesize molecules till Authenticator.
     - Employ warhead selection and scoring tools for optimization.
 
-## 1 Data-Driven Modules
+## 1  Data-Driven Modules
 
 ### 1.1. **MagnetDB Database**
 
@@ -155,13 +155,13 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 ```
 
 
-## 2 Structure-Guided Modules
+## 2.  Structure-Guided Modules
 
-### 2.1 **PDB Selection**
+### 2.1.  **PDB Selection**
 
 - Use protein structures from databases like PDB, AlphaFold, or Rosetta.
 
-### 2.2 **De Novo Molecule Synthesis**
+### 2.2.  **De Novo Molecule Synthesis**
 
 - Synthesize molecules based on druggable cavities using third-party tools like GCoupler, SiteMap, or Pocket2mol.
 
@@ -169,7 +169,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 
 - Map and rank the top synthesized molecules for specific targets.
 
-### 2.4. **Generator**
+### 2.4.  **Generator**
 
 - Generate new molecules based on input data.
 - Includes:
