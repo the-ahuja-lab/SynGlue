@@ -70,7 +70,7 @@ SynGlue offers a two-part approach:
 - Browse through compound data and visualize results.
 - Backend: A database containing terminal fragments, ligands, and their targets.
 
- ```
+```bash
 >>> import MagnetDatabase as db
 ```
 
@@ -78,7 +78,7 @@ SynGlue offers a two-part approach:
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
- ```
+```bash
 >>> import Computator as comp
 ```
 
@@ -86,16 +86,17 @@ SynGlue offers a two-part approach:
 ### 3. **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
-  ```
+```bash
 >>> import Annotator as ant
 ```
 To calculate the types and functional groups  of mapped compounds
-```
+
+```bash
 >>>ant.types(path='pre-set default Output folder/')
 ```
 
 To change Annotator strigency default is query fargment>= 25% and Target Fragment 75%
-```
+```bash
 >>> ant.thershold('query_fragment >=x' ; target_fragment >=y)
 ```
 
