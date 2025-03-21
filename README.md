@@ -1,8 +1,8 @@
 # Readme
 
-# MetaboGlue: A Generative AI-Powered Polypharmacology Toolkit
+# SynGlue: A Generative AI-Powered Polypharmacology Toolkit
 
-**MetaboGlue** is a Python package designed to facilitate the decoding and designing of complex multi-targeting metabolites using generative AI techniques. It offers a comprehensive suite of tools for researchers and developers working on polypharmacology and drug discovery, including functionalities for metabolite prediction, multi-target interactions, and data visualization.
+**SynGlue** is a Python package designed to facilitate the decoding and designing of complex PROTACs using generative AI techniques. It offers a comprehensive suite of tools for researchers and developers working on polypharmacology and drug discovery, including functionalities for metabolite prediction, multi-target interactions, and data visualization.
 
  <br>
 <div align="center">
@@ -13,26 +13,26 @@
 
 ## Features
 
-- **Generative AI Models**: Leverage AI to design and optimize PROTACs and multi-targeting molecules.
+- **Generative AI Models**: Leverage AI to design and optimize PROTACs and Multi-targeting Molecules.
 - **Polypharmacology**: Classify molecules based on type and target mapping.
 - **Flexible API**: Easily integrate MetaboGlue into your workflows with a RESTful API powered by FastAPI.
 - **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
-- **Modular Design**: MetaboGlue is built with multiple modules to perform tasks like browsing, annotating, and mapping molecules/metabolites.
+- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, annotating, and mapping molecules.
   
 ## Installation
 
 ### Install from PyPI
 
 ```bash
-pip install MetaboGlue
+pip install SynGlue
 
 ```
 
 ### Clone and Install Locally
 
 ```bash
-git clone <https://github.com/the-ahuja-lab/MetaboGlue.git>
-cd MetaboGlue
+git clone <https://github.com/the-ahuja-lab/SynGlue.git>
+cd SynGlue
 pip install .
 
 ```
@@ -41,7 +41,7 @@ pip install .
 
 ## Structure-Guided Workflow
 
-MetaboGlue offers a two-part approach:
+SynGlue offers a two-part approach:
 
 1. **Data-Driven**
     - Utilize structural databases to extract terminal fragments, ligands, and target mappings.
@@ -53,12 +53,12 @@ MetaboGlue offers a two-part approach:
 
 ## Data-Driven Modules
 
-### 1. **Browser**
+### 1. **MagnetDB Database**
 
 - Browse through compound data and visualize results.
-- Backend: A database containing terminal fragments, ligands, and targets.
+- Backend: A database containing terminal fragments, ligands, and their targets.
 
-### 2. **Mapper**
+### 2. **Computator**
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
@@ -115,7 +115,7 @@ MetaboGlue offers a two-part approach:
 
 ## License
 
-MetaboGlue is licensed under the MIT License. See [LICENSE](https://www.notion.so/saveenasolanki/LICENSE) for more details.
+SynGlue is licensed under the MIT License. See [LICENSE](https://www.notion.so/saveenasolanki/LICENSE) for more details.
 
 ## Acknowledgments
 
@@ -124,7 +124,7 @@ MetaboGlue is licensed under the MIT License. See [LICENSE](https://www.notion.s
 
 ## Summary
 
-MetaboGlue is a comprehensive toolkit that combines **data-driven** and **structure-guided** methodologies to design and analyze polypharmacological metabolites. It enables researchers to:
+SynGlue is a comprehensive toolkit that combines **data-driven** and **structure-guided** methodologies to design and analyze PROTACs. It enables researchers to:
 
 - Map and annotate molecules with structural and functional insights.
 - Optimize molecular generation workflows for drug discovery.
