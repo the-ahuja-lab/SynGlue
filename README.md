@@ -121,10 +121,10 @@ Follow them in order for the best learning experience. Click on the **Colab link
 
 | Tutorial | Difficulty | Colab Link |
 |----------|------------|------------|
-| 1. MagnetDatabase  | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
+| 1. Magnet Database  | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 | 2. Data Driven Computator and Annotator | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 | 3. Data Driven Generator  | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
-| 4. PROTAC Priortization | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
+| 4. PROTAC Priortization | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 | 5. Structure Guided Generator | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 
 
