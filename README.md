@@ -104,7 +104,7 @@ SynGlue offers a two-part approach:
 ```
 
 
-### 1.3 **Annotator**
+### 1.3   **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
 ```bash
@@ -154,19 +154,19 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 
 ## 2.  Structure-Guided Modules
 
-### 2.1  **PDB Selection**
+### 2.1    **PDB Selection**
 
 - Use protein structures from databases like PDB, AlphaFold, or Rosetta.
 
-### 2.2  **De Novo Molecule Synthesis**
+### 2.2    **De Novo Molecule Synthesis**
 
 - Synthesize molecules based on druggable cavities using third-party tools like GCoupler, SiteMap, or Pocket2mol.
 
-### 2.3 **Warhead Mapper**
+### 2.3   **Warhead Mapper**
 
 - Map and rank the top synthesized molecules for specific targets.
 
-### 2.4  **Generator**
+### 2.4    **Generator**
 
 - Generate new molecules based on input data.
 - Includes:
@@ -205,7 +205,13 @@ Follow them in order for the best learning experience. Click on the **Colab link
 | 4. PROTAC Priortization | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 | 5. Structure Guided Generator | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 
+## Summary
 
+SynGlue is a comprehensive toolkit that combines **data-driven** and **structure-guided** methodologies to design and analyze PROTACs. It enables researchers to:
+
+- Map and annotate molecules with structural and functional insights.
+- Optimize molecular generation workflows for drug discovery.
+- Integrate easily into existing pipelines via a RESTful API.
 
 ## Dependencies
 
@@ -244,13 +250,7 @@ Many existing works greatly inspired this project! Here is a non-exhaustive list
 - Thanks to the **RDKit team** for their powerful cheminformatics toolkit.
 - Gratitude to the contributors and maintainers of **FastAPI**, **Uvicorn**, and other open-source libraries used in this project.
 
-## Summary
 
-SynGlue is a comprehensive toolkit that combines **data-driven** and **structure-guided** methodologies to design and analyze PROTACs. It enables researchers to:
-
-- Map and annotate molecules with structural and functional insights.
-- Optimize molecular generation workflows for drug discovery.
-- Integrate easily into existing pipelines via a RESTful API.
 
 ## Contributors 
 
