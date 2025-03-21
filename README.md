@@ -1,5 +1,3 @@
-# Readme
-
 
 # SynGlue: A Generative AI Toolkit for PROTAC Design
 
