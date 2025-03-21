@@ -23,9 +23,6 @@
   <a href="https://github.com/YOUR_USERNAME/YOUR_REPO">
     <img src="https://img.shields.io/badge/Code-Source-black">
   </a>
-  <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb">
-    <img src="https://img.shields.io/badge/Notebook-Run-black">
-  </a>
 </p>
 
 </div>
