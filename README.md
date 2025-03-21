@@ -218,6 +218,18 @@ Follow them in order for the best learning experience. Click on the **Colab link
 
 SynGlue is licensed under the MIT License. See [LICENSE](https://www.notion.so/saveenasolanki/LICENSE) for more details.
 
+
+## Resources
+
+### Inspiration  
+Many existing works greatly inspired this project! Here is a non-exhaustive list:
+
+- 📚 [Reinvent4]((https://github.com/MolecularAI/REINVENT4))  molecular design tool for linker design. 
+- 📚 [DeepChem]([https://github.com/stanfordnlp/dspy](https://deepchem.readthedocs.io/en/latest/api_reference/models.html)) is a pioneer in writing DL programs in many different ways! Has been a huge inspiration for us.  
+- 📚 [GCoupler]([https://github.com/karpathy/micrograd](https://github.com/the-ahuja-lab/Gcoupler)): an integrative approach combining de novo ligand design, statistical methods, and Graph Neural Networks for rational prediction of high-affinity ligands.  
+
+-----------------------
+
 ## Acknowledgments
 
 - Thanks to the **RDKit team** for their powerful cheminformatics toolkit.
@@ -231,4 +243,5 @@ SynGlue is a comprehensive toolkit that combines **data-driven** and **structure
 - Optimize molecular generation workflows for drug discovery.
 - Integrate easily into existing pipelines via a RESTful API.
 
+## Contributors 
 
