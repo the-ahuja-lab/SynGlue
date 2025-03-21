@@ -9,7 +9,7 @@
 <br>
 
 
-<div align="center">
+<div align="left">
 
 <p>
   <img src="https://img.shields.io/badge/License-MIT-blue.svg">
@@ -87,9 +87,9 @@ SynGlue offers a two-part approach:
     - Use the **GCoupler** module to synthesize molecules till Authenticator.
     - Employ warhead selection and scoring tools for optimization.
 
-## 1  Data-Driven Modules
+## 1.  Data-Driven Modules
 
-### 1.1. **MagnetDB Database**
+### 1.1 **MagnetDB Database**
 
 - Browse through compound data and visualize results.
 - Backend: A database containing terminal fragments, ligands, and their targets.
@@ -98,7 +98,7 @@ SynGlue offers a two-part approach:
 >>> import MagnetDatabase as db
 ```
 
-### 1.2. **Computator**
+### 1.2 **Computator**
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
@@ -107,7 +107,7 @@ SynGlue offers a two-part approach:
 ```
 
 
-### 1.3. **Annotator**
+### 1.3 **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
 ```bash
@@ -134,7 +134,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 | **Multivalent, Multitarget**     | Type 4 |
 
 
-### 1.4. **Warhead Mapper and Generator**
+### 1.4 **Warhead Mapper and Generator**
 
 - Map potential warheads for specific targets during drug design workflows.
 ```bash
@@ -157,19 +157,19 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 
 ## 2.  Structure-Guided Modules
 
-### 2.1.  **PDB Selection**
+### 2.1  **PDB Selection**
 
 - Use protein structures from databases like PDB, AlphaFold, or Rosetta.
 
-### 2.2.  **De Novo Molecule Synthesis**
+### 2.2  **De Novo Molecule Synthesis**
 
 - Synthesize molecules based on druggable cavities using third-party tools like GCoupler, SiteMap, or Pocket2mol.
 
-### 2.3. **Warhead Mapper**
+### 2.3 **Warhead Mapper**
 
 - Map and rank the top synthesized molecules for specific targets.
 
-### 2.4.  **Generator**
+### 2.4  **Generator**
 
 - Generate new molecules based on input data.
 - Includes:
