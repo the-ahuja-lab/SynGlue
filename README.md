@@ -30,7 +30,9 @@
 - **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
 - **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping  and molecules.
   
-## Installation
+# Installation
+You can install SynGlue using any of the following methods.
+
 **The package installation takes a few seconds to finish.**
 
 ### Install from PyPI
@@ -48,6 +50,13 @@ cd SynGlue
 pip install .
 
 ```
+
+### With `conda`:
+```bash
+conda install -c conda-forge synglue
+```
+
+The conda-forge package for synglue is maintained here.
 
 
 
@@ -100,6 +109,15 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 >>> ant.thershold('query_fragment >=x' ; target_fragment >=y)
 ```
 
+#### Type Analysis
+
+| Classification      | Type   |
+|---------------------|--------------|
+| **Monovalent,Monotargett**       | Type 1      | 
+| **Monovalent,Multitargett**      | Type 2      | 
+| **Multivalent,Monotargett**      | Type 3      | 
+| **Multivalent,Multitargett**     | Type 4      | 
+
 ### 4. **Warhead Mapper**
 
 - Map potential warheads for specific targets during drug design workflows.
@@ -120,7 +138,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
     - **Optimizer**: Fine-tune generated structures.
     - **Scorer**: Rank generated molecules.
  
-  ```bash
+```bash
 >>> import Generator as gn
 ```
 
@@ -152,7 +170,14 @@ Additional arguments:
 2. Dmax : Transformer based regressor to predict Dmax vaues
 3. DC50 Classifier : Multiclass prediction of DC50 based on linker
 
- 
+##### Output folder
+The output folder will contain the following files at the end of the successful execution of the Generator module
+| Files | Description |
+| -------- | -------- |
+| CSV files | Generated molecules with the predicted DC50 , Dmax |
+
+
+
 ## Tutorials
 To run SynGlue, we have prepared a set of tutorials to help you get started. These tutorials are designed for beginners and should be followed in the recommended order.
 You can run them directly in Google Colab using the links below. However, you will need an permision key to use SynGlue.
@@ -171,21 +196,6 @@ Follow them in order for the best learning experience. Click on the **Colab link
 | 4. PROTAC Priortization | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 | 5. Structure Guided Generator | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 
-
-# Installation
-You can install SynGlue using any of the following methods.
-
-### With `pip`:
-```bash
-pip install synglue
-```
-
-### With `conda`:
-```bash
-conda install -c conda-forge synglue
-```
-
-The conda-forge package for synglue is maintained here.
 
 
 ## Dependencies
