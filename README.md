@@ -188,14 +188,9 @@ The output folder will contain the following files at the end of the successful 
 
 
 ## Tutorials
-To run SynGlue, we have prepared a set of tutorials to help you get started. These tutorials are designed for beginners and should be followed in the recommended order.
-You can run them directly in Google Colab using the links below. However, you will need an permision key to use SynGlue.
+To run SynGlue, we have prepared a set of tutorials to help you get started. These tutorials are designed for beginners and eaily runnable.
+You can run them directly in Google Colab using the links below. However, you will need an license key to use SynGlue.
 
-## Tutorials
-
-We have prepared a set of tutorials to help you get started with **SynGlue**.  
-Follow them in order for the best learning experience. Click on the **Colab links** below to run them.  
-(**Note:** You will need an API key to use SynGlue.)
 
 | Tutorial | Difficulty | Colab Link |
 |----------|------------|------------|
