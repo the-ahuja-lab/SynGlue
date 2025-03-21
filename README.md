@@ -113,10 +113,10 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 
 | Classification      | Type   |
 |---------------------|--------------|
-| **Monovalent,Monotargett**       | Type 1      | 
-| **Monovalent,Multitargett**      | Type 2      | 
-| **Multivalent,Monotargett**      | Type 3      | 
-| **Multivalent,Multitargett**     | Type 4      | 
+| **Monovalent,Monotarget**       | Type 1      | 
+| **Monovalent,Multitarget**      | Type 2      | 
+| **Multivalent,Monotarget**      | Type 3      | 
+| **Multivalent,Multitarget**     | Type 4      | 
 
 ### 4. **Warhead Mapper**
 
