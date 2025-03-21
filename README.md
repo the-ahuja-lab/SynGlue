@@ -31,6 +31,7 @@
 - **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping  and molecules.
   
 ## Installation
+**The package installation takes a few seconds to finish.**
 
 ### Install from PyPI
 
@@ -69,17 +70,40 @@ SynGlue offers a two-part approach:
 - Browse through compound data and visualize results.
 - Backend: A database containing terminal fragments, ligands, and their targets.
 
+ ```
+>>> import MagnetDatabase as db
+```
+
 ### 2. **Computator**
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
+ ```
+>>> import Computator as comp
+```
+
+
 ### 3. **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
+  ```
+>>> import Annotator as ant
+```
+To calculate the types and functional groups  of mapped compounds
+```
+>>>ant.types(path='pre-set default Output folder/')
+```
+
+To change Annotator strigency default is query fargment>= 25% and Target Fragment 75%
+```
+>>> ant.thershold('query_fragment >=x' ; target_fragment >=y)
+```
 
 ### 4. **Warhead Mapper**
 
 - Map potential warheads for specific targets during drug design workflows.
+
+
 
 ### 5. **Generator**
 
