@@ -11,19 +11,28 @@
 
 <div align="center">
 
-![License](https://img.shields.io/badge/License-MIT-blue.svg)  
-![Docs](https://img.shields.io/badge/docs-passing-green)  
-![Python](https://img.shields.io/badge/python-3.9-blue)  
-![PyPI](https://img.shields.io/badge/pypi-v0.1.6-orange)  
-![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE)  
+<p>
+  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
+  <img src="https://img.shields.io/badge/docs-passing-green">
+  <img src="https://img.shields.io/badge/python-3.9-blue">
+  <img src="https://img.shields.io/badge/pypi-v0.1.6-orange">
+  <img src="https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE">
+</p>
 
-<br>
-
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)  
-[![Code](https://img.shields.io/badge/Code-Source-black)](https://github.com/YOUR_USERNAME/YOUR_REPO)  
-[![Notebook](https://img.shields.io/badge/Notebook-Run-black)](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)  
+<p>
+  <a href="https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb">
+    <img src="https://colab.research.google.com/assets/colab-badge.svg">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/YOUR_REPO">
+    <img src="https://img.shields.io/badge/Code-Source-black">
+  </a>
+  <a href="https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb">
+    <img src="https://img.shields.io/badge/Notebook-Run-black">
+  </a>
+</p>
 
 </div>
+
 
 
 
