@@ -79,15 +79,15 @@ The conda-forge package for synglue is maintained here.
 
 SynGlue offers a two-part approach:
 
-1. **Data-Driven**
+- **Data-Driven**
     - Utilize structural databases to extract terminal fragments, ligands, and target mappings.
     - Map input molecules, annotate types and targets, and generate optimized molecules.
-2. **Structure-Guided**
+- **Structure-Guided**
     - Input structures from databases like PDB, AlphaFold, or Rosetta.
     - Use the **GCoupler** module to synthesize molecules till Authenticator.
     - Employ warhead selection and scoring tools for optimization.
 
-## Data-Driven Modules
+## 1 Data-Driven Modules
 
 ### 1.1. **MagnetDB Database**
 
@@ -155,7 +155,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 ```
 
 
-## Structure-Guided Modules
+## 2 Structure-Guided Modules
 
 ### 2.1 **PDB Selection**
 
