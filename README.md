@@ -8,19 +8,23 @@
 <img src="images/Asset_2.png"></div>
 <br>
 
-----
+
 <div align="center">
-![License](https://img.shields.io/badge/License-MIT-blue.svg)
-![Docs](https://img.shields.io/badge/docs-passing-green)
-![Python](https://img.shields.io/badge/python-3.9-blue)
-![PyPI](https://img.shields.io/badge/pypi-v0.1.6-orange)
-![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE)
+
+![License](https://img.shields.io/badge/License-MIT-blue.svg)  
+![Docs](https://img.shields.io/badge/docs-passing-green)  
+![Python](https://img.shields.io/badge/python-3.9-blue)  
+![PyPI](https://img.shields.io/badge/pypi-v0.1.6-orange)  
+![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE)  
+
 <br>
 
-[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)
-[![Code](https://img.shields.io/badge/Code-Source-black)](https://github.com/YOUR_USERNAME/YOUR_REPO)
-[![Notebook](https://img.shields.io/badge/Notebook-Run-black)](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)
+[![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)  
+[![Code](https://img.shields.io/badge/Code-Source-black)](https://github.com/YOUR_USERNAME/YOUR_REPO)  
+[![Notebook](https://img.shields.io/badge/Notebook-Run-black)](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)  
+
 </div>
+
 
 
 ## Features
