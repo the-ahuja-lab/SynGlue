@@ -86,7 +86,7 @@ SynGlue offers a two-part approach:
 
 ## 1.  Data-Driven Modules
 
-### 1.1 **MagnetDB Database**
+### 1.1 --- **MagnetDB Database**
 
 - Browse through compound data and visualize results.
 - Backend: A database containing terminal fragments, ligands, and their targets.
@@ -95,7 +95,7 @@ SynGlue offers a two-part approach:
 >>> import MagnetDatabase as db
 ```
 
-### 1.2 **Computator**
+### 1.2 --- **Computator**
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
@@ -104,7 +104,7 @@ SynGlue offers a two-part approach:
 ```
 
 
-### 1.3   **Annotator**
+### 1.3 --- **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
 ```bash
@@ -131,7 +131,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 | **Multivalent, Multitarget**     | Type 4 |
 
 
-### 1.4 **Warhead Mapper and Generator**
+### 1.4 --- **Warhead Mapper and Generator**
 
 - Map potential warheads for specific targets during drug design workflows.
 ```bash
