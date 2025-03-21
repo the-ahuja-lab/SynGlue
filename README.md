@@ -128,6 +128,18 @@ Follow them in order for the best learning experience. Click on the **Colab link
 | 5. Structure Guided Generator | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
 
 
+# Installation
+You can install SynGlue using any of the following methods.
+
+### With `pip`:
+```bash
+pip install synglue
+
+### With `conda`:
+```bash
+conda install -c conda-forge synglue
+
+The conda-forge package for synglue is maintained here.
 
 
 ## Dependencies
