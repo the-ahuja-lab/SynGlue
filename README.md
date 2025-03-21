@@ -40,7 +40,7 @@ pip install .
 
 
 
-## Structure-Guided Workflow
+## SynGlue Workflow
 
 SynGlue offers a two-part approach:
 
