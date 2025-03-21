@@ -17,9 +17,6 @@
   <img src="https://img.shields.io/badge/python-3.9-blue">
   <img src="https://img.shields.io/badge/pypi-v0.1.6-orange">
   <img src="https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE">
-</p>
-
-<p>
   <a href="https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb">
     <img src="https://colab.research.google.com/assets/colab-badge.svg">
   </a>
