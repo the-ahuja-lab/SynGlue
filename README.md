@@ -103,6 +103,13 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 ### 4. **Warhead Mapper**
 
 - Map potential warheads for specific targets during drug design workflows.
+```bash
+>>> import Warhead Mapper as wm
+```
+  
+```bash
+>>> wm.targets('Target1', E3ligand)
+```
 
 
 
@@ -112,6 +119,11 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 - Includes:
     - **Optimizer**: Fine-tune generated structures.
     - **Scorer**: Rank generated molecules.
+ 
+  ```bash
+>>> import Generator as gn
+```
+
 
 ## Structure-Guided Modules
 
@@ -133,6 +145,13 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 - Includes:
     - **Optimizer**: Fine-tune generated structures.
     - **Scorer**: Rank generated molecules.
+
+
+Additional arguments:
+1. DC50 : Transformer based regressor to predict DC50 values 
+2. Dmax : Transformer based regressor to predict Dmax vaues
+3. DC50 Classifier : Multiclass prediction of DC50 based on linker
+
  
 ## Tutorials
 To run SynGlue, we have prepared a set of tutorials to help you get started. These tutorials are designed for beginners and should be followed in the recommended order.
