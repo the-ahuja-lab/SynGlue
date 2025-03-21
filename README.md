@@ -1,8 +1,8 @@
 # Readme
 
-# SynGlue: A Generative AI-Powered Polypharmacology Toolkit
+# SynGlue: A Generative AI Toolkit for PROTAC Design
 
-**SynGlue** is a Python package designed to facilitate the decoding and designing of complex PROTACs using generative AI techniques. It offers a comprehensive suite of tools for researchers and developers working on polypharmacology and drug discovery, including functionalities for metabolite prediction, multi-target interactions, and data visualization.
+**SynGlue** is a powerful Python package built to accelerate the discovery and design of complex PROTACs (Proteolysis Targeting Chimeras) using generative AI. Tailored for researchers and developers in polypharmacology and drug discovery, SynGlue offers an end-to-end suite of tools for generating PROTACs and prioritising as well
 
  <br>
 <div align="center">
@@ -14,10 +14,11 @@
 ## Features
 
 - **Generative AI Models**: Leverage AI to design and optimize PROTACs and Multi-targeting Molecules.
+- **ALgorithm** : Fast Fragment Based TRIE data storage algorithm.
 - **Polypharmacology**: Classify molecules based on type and target mapping.
-- **Flexible API**: Easily integrate MetaboGlue into your workflows with a RESTful API powered by FastAPI.
+- **Flexible API**: Easily integrate SynGlue into your workflows with a RESTful API powered by FastAPI.
 - **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
-- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, annotating, and mapping molecules.
+- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping  and molecules.
   
 ## Installation
 
@@ -48,7 +49,7 @@ SynGlue offers a two-part approach:
     - Map input molecules, annotate types and targets, and generate optimized molecules.
 2. **Structure-Guided**
     - Input structures from databases like PDB, AlphaFold, or Rosetta.
-    - Use the **GCoupler** module to synthesize molecules.
+    - Use the **GCoupler** module to synthesize molecules till Authenticator.
     - Employ warhead selection and scoring tools for optimization.
 
 ## Data-Driven Modules
