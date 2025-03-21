@@ -3,22 +3,24 @@
 
 **SynGlue** is a powerful Python package built to accelerate the discovery and design of complex PROTACs (Proteolysis Targeting Chimeras) using generative AI. Tailored for researchers and developers in polypharmacology and drug discovery, SynGlue offers an end-to-end suite of tools for generating PROTACs and prioritising as well
 
- <br>
+<br>
 <div align="center">
 <img src="images/Asset_2.png"></div>
 <br>
 
 ----
-
+<div align="center">
 ![License](https://img.shields.io/badge/License-MIT-blue.svg)
 ![Docs](https://img.shields.io/badge/docs-passing-green)
 ![Python](https://img.shields.io/badge/python-3.9-blue)
 ![PyPI](https://img.shields.io/badge/pypi-v0.1.6-orange)
 ![Conda-Forge](https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE)
+<br>
 
 [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)
 [![Code](https://img.shields.io/badge/Code-Source-black)](https://github.com/YOUR_USERNAME/YOUR_REPO)
 [![Notebook](https://img.shields.io/badge/Notebook-Run-black)](https://github.com/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb)
+</div>
 
 
 ## Features
