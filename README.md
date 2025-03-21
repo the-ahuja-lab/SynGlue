@@ -134,10 +134,12 @@ You can install SynGlue using any of the following methods.
 ### With `pip`:
 ```bash
 pip install synglue
+```
 
 ### With `conda`:
 ```bash
 conda install -c conda-forge synglue
+```
 
 The conda-forge package for synglue is maintained here.
 
