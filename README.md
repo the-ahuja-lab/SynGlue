@@ -1,11 +1,11 @@
 
-# SynGlue: A Generative AI Toolkit for PROTAC Design
+# SynGlue: A Generative AI Toolkit for PROTACs Decoding and Designing
 
-**SynGlue** is a powerful Python package built to accelerate the discovery and design of complex PROTACs (Proteolysis Targeting Chimeras) using generative AI. Tailored for researchers and developers in polypharmacology and drug discovery, SynGlue offers an end-to-end suite of tools for generating PROTACs and prioritising .
+ **SynGlue** is a powerful Python-based platform for the generation, analysis, and optimization of PROTACs (Proteolysis Targeting Chimeras), and multitarget molecules. Built for researchers in cheminformatics, structural biology, and drug discovery. SynGlue uses data-driven AI to accelerate the design of small molecules, predict degradation potency (DC₅₀, Dmax), and guide rational linker selection. SynGlue offers an end-to-end suite of tools for generating PROTACs and  their prioritising.
 
 <br>
 <div align="center">
-<img src="images/Asset_2.png"></div>
+<img src="images/Asset_2.png" alt="SynGlue architecture for PROTACs and molecular glue design via data-driven and structure-guided methods" ></div>
 <br>
 
 
