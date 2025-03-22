@@ -30,7 +30,7 @@
 
 
 
-## Features
+## 🚀 Features
 
 - **Generative AI Models**: Leverage AI to design and optimize PROTACs and Multitargeting Molecules.
 - **ALgorithm** : Fast Fragment Based TRIE data storage algorithm.
@@ -44,7 +44,7 @@ You can install SynGlue using any of the following methods.
 
 **The package installation takes a few seconds to finish.**
 
-### Install from PyPI
+### 📦 Install from PyPI
 
 ```bash
 pip install SynGlue
@@ -67,7 +67,7 @@ conda install -c conda-forge synglue
 
 The conda-forge package for synglue is maintained here.
 
-
+---
 
 ## SynGlue Workflow
 
@@ -80,10 +80,11 @@ SynGlue offers a two-part approach:
     - Input structures from databases like PDB, AlphaFold, or Rosetta.
     - Use the **GCoupler** module to synthesize molecules till Authenticator.
     - Employ warhead selection and scoring tools for optimization.
+      
+---
+## 1.  📊 Data-Driven Modules
 
-## 1.  Data-Driven Modules
-
-### 1.1 --- **MagnetDB Database**
+### 1.1 **MagnetDB Database**
 
 - Browse through compound data and visualize results.
 - Backend: A database containing terminal fragments, ligands, and their targets.
@@ -92,7 +93,7 @@ SynGlue offers a two-part approach:
 >>> import MagnetDatabase as db
 ```
 
-### 1.2 --- **Computator**
+### 1.2 **Computator**
 
 - Map queries to relevant compound data and retrieve matching ligands and fragments.
 
@@ -101,7 +102,7 @@ SynGlue offers a two-part approach:
 ```
 
 
-### 1.3 --- **Annotator**
+### 1.3  **Annotator**
 
 - Annotate compounds with molecular type, target information, and functional groups.
 ```bash
@@ -132,7 +133,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 | **Multivalent, Multitarget**     | Type 4 |
 
 
-### 1.4 --- **Warhead Mapper and Generator**
+### 1.4  **Warhead Mapper and Generator**
 
 - Map potential warheads for specific targets during drug design workflows.
 ```bash
@@ -152,11 +153,10 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 >>> import Generator as gn
 ```
 
-## 🔬 Module 4: Advanced Prediction Utilities (SYNGLUe)
+## Module 4: Advanced Prediction Utilities 
 
-In addition to generating and prioritizing novel PROTAC and multitarget molecules, **SYNGLUe Module 4** also offers predictive functionality for key degradation metrics using state-of-the-art models.
+In addition to generating and prioritizing novel PROTAC and multitarget molecules, **SynGlue Module 4** also offers predictive functionality for key degradation metrics using state-of-the-art models.
 
----
 
 ### 🧠 DC50 & Dmax Prediction via Transformer-DMPNN Regression
 
@@ -169,7 +169,6 @@ These predictions are powered by a **Transformer + D-MPNN (Directed Message Pass
 
 ✅ This module can run **independently** — just provide the full PROTAC SMILES.
 
----
 
 ### 🔗 Linker-based DC50 Classification
 
@@ -193,8 +192,8 @@ The model categorizes the linker into one of **four degradation activity classes
 
 All results — including predicted **DC50**, **Dmax** values, or **classification labels** — are saved in the specified **output folder** during execution.
 
-
-## 2.  Structure-Guided Modules
+---
+## 2.  🧬 Structure-Guided Modules
 
 ### 2.1    **PDB Selection**
 
@@ -215,12 +214,32 @@ All results — including predicted **DC50**, **Dmax** values, or **classificati
     - **Optimizer**: Fine-tune generated structures.
     - **Scorer**: Rank generated molecules.
 
-it also has additional functionality one is to predict DC50 and Dmax via giving entire PROTAC molecule we Hvae transformer DMPNN based attention layer regression model to predict  it can run independtly via giving PROTAC you cna predict their DC50 and DMax
-So give entire PROTAC canonical SMILE it will predict DC50 and Dmax  than in second instance we have linker based DC50 classification  into 4 classes 
-Additional arguments:
-1. DC50 : Transformer based regressor to predict DC50 values 
-2. Dmax : Transformer based regressor to predict Dmax vaues
-3. DC50 Classifier : Multiclass prediction of DC50 based on linker
+#### 🔧 Additional Functionality
+
+The Generator module also includes predictive capabilities for assessing PROTAC performance metrics:
+
+**DC₅₀ & Dmax Prediction**:
+
+A Transformer-based D-MPNN (Directed Message Passing Neural Network) regression model is integrated with an attention mechanism.
+
+*Input*: Canonical SMILES of a full PROTAC molecule.
+
+*Output*: Predicted DC₅₀ (half-maximal degradation concentration) and Dmax (maximum degradation).
+
+This submodule can also run independently for prediction-only tasks.
+
+**DC₅₀ Classification**:
+
+A classification model predicts DC₅₀ category based on the linker structure.
+
+*Output*: One of four predefined DC₅₀ classes (e.g., Low, Moderate, High, Very High).
+
+🔤 Additional Arguments:
+--DC50: Activates Transformer-based regression for DC₅₀ prediction.
+
+--Dmax: Activates Transformer-based regression for Dmax prediction.
+
+--DC50_Classifier: Enables multiclass classification of DC₅₀ based on linker input.
 
 ##### Output folder
 The output folder will contain the following files at the end of the successful execution of the Generator module
