@@ -118,6 +118,12 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 >>> ant.thershold('query_fragment >=x' ; target_fragment >=y)
 ```
 
+<br>
+<div align="center">
+<img src="images/Asset_1.png"></div>
+<br>
+
+
 #### Type Analysis
 
 | Classification                  | Type  |
