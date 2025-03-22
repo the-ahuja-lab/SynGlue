@@ -33,11 +33,11 @@
 ## 🚀 Features
 
 - **Generative AI Models**: Leverage AI to design and optimize PROTACs and Multitargeting Molecules.
-- **ALgorithm** : Fast Fragment Based TRIE data storage algorithm.
+- **Algorithm** : Fast Fragment Based TRIE data storage algorithm.
 - **Polypharmacology**: Classify molecules based on type and target mapping.
 - **Flexible API**: Easily integrate SynGlue into your workflows with a RESTful API powered by FastAPI.
 - **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
-- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping  and molecules.
+- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping target  and designing modalities molecules like PROTACs and multitarget molcules.
   
 # Installation
 You can install SynGlue using any of the following methods.
@@ -51,7 +51,7 @@ pip install SynGlue
 
 ```
 
-### Clone and Install Locally
+### 🧩 Clone and Install Locally
 
 ```bash
 git clone <https://github.com/the-ahuja-lab/SynGlue.git>
@@ -60,7 +60,7 @@ pip install .
 
 ```
 
-### With `conda`:
+### ⚙️ With `conda`:
 ```bash
 conda install -c conda-forge synglue
 ```
@@ -125,7 +125,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 <br>
 
 
-| Classification                  | Type  |
+| Classification                   | Type  |
 |----------------------------------|-------|
 | **Monovalent, Monotarget**       | Type 1 |
 | **Monovalent, Multitarget**      | Type 2 |
@@ -134,6 +134,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 
 
 ### 1.4  **Warhead Mapper and Generator**
+
 
 - Map potential warheads for specific targets during drug design workflows.
 ```bash
@@ -153,7 +154,8 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 >>> import Generator as gn
 ```
 
-## Module 4: Advanced Prediction Utilities 
+
+## Advanced Prediction Utilities 
 
 In addition to generating and prioritizing novel PROTAC and multitarget molecules, **SynGlue Module 4** also offers predictive functionality for key degradation metrics using state-of-the-art models.
 
@@ -176,7 +178,8 @@ A separate classifier is available to **predict DC50 classes** based solely on t
 
 The model categorizes the linker into one of **four degradation activity classes**, based on training with annotated linker datasets.
 
----
+✅ This module can alsdo run **independently** — just provide the linker SMILES.
+
 
 ### ⚙️ Additional Arguments
 
@@ -186,13 +189,16 @@ The model categorizes the linker into one of **four degradation activity classes
 | `Dmax`             | Transformer-based regression for Dmax prediction                            |
 | `DC50 Classifier`  | Multi-class classification of DC50 activity levels using linker information |
 
----
 
 ### 📁 Output
 
 All results — including predicted **DC50**, **Dmax** values, or **classification labels** — are saved in the specified **output folder** during execution.
 
----
+
+---------
+
+
+
 ## 2.  🧬 Structure-Guided Modules
 
 ### 2.1    **PDB Selection**
@@ -216,30 +222,8 @@ All results — including predicted **DC50**, **Dmax** values, or **classificati
 
 #### 🔧 Additional Functionality
 
-The Generator module also includes predictive capabilities for assessing PROTAC performance metrics:
+The Generator module also includes predictive capabilities for assessing PROTAC performance metrics as mentioned above advanced prediction utilities also work for structure guided  designed PROTACs.
 
-**DC₅₀ & Dmax Prediction**:
-
-A Transformer-based D-MPNN (Directed Message Passing Neural Network) regression model is integrated with an attention mechanism.
-
-*Input*: Canonical SMILES of a full PROTAC molecule.
-
-*Output*: Predicted DC₅₀ (half-maximal degradation concentration) and Dmax (maximum degradation).
-
-This submodule can also run independently for prediction-only tasks.
-
-**DC₅₀ Classification**:
-
-A classification model predicts DC₅₀ category based on the linker structure.
-
-*Output*: One of four predefined DC₅₀ classes (e.g., Low, Moderate, High, Very High).
-
-🔤 Additional Arguments:
---DC50: Activates Transformer-based regression for DC₅₀ prediction.
-
---Dmax: Activates Transformer-based regression for Dmax prediction.
-
---DC50_Classifier: Enables multiclass classification of DC₅₀ based on linker input.
 
 ##### Output folder
 The output folder will contain the following files at the end of the successful execution of the Generator module
@@ -269,6 +253,7 @@ SynGlue is a comprehensive toolkit that combines **data-driven** and **structure
 - Map and annotate molecules with structural and functional insights.
 - Optimize molecular generation workflows for drug discovery.
 - Integrate easily into existing pipelines via a RESTful API.
+- Small Cheminformatics workflow like  type classification of molecule , fucntional group check , target mapping , highlight molecule , finding common substructure , fargment molecule rdFCMS.
 
 ## Dependencies
 
