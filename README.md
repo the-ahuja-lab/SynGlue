@@ -152,6 +152,47 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 >>> import Generator as gn
 ```
 
+## 🔬 Module 4: Advanced Prediction Utilities (SYNGLUe)
+
+In addition to generating and prioritizing novel PROTAC and multitarget molecules, **SYNGLUe Module 4** also offers predictive functionality for key degradation metrics using state-of-the-art models.
+
+---
+
+### 🧠 DC50 & Dmax Prediction via Transformer-DMPNN Regression
+
+Simply input the **canonical SMILES of the full PROTAC molecule**, and the model will predict:
+
+- **DC50** – the half-maximal degradation concentration  
+- **Dmax** – the maximum degradation response  
+
+These predictions are powered by a **Transformer + D-MPNN (Directed Message Passing Neural Network)** regression model with an attention layer, enabling accurate mapping from molecular structure to degradation activity.
+
+✅ This module can run **independently** — just provide the full PROTAC SMILES.
+
+---
+
+### 🔗 Linker-based DC50 Classification
+
+A separate classifier is available to **predict DC50 classes** based solely on the **linker** component of the PROTAC.
+
+The model categorizes the linker into one of **four degradation activity classes**, based on training with annotated linker datasets.
+
+---
+
+### ⚙️ Additional Arguments
+
+| Argument           | Description                                                                 |
+|--------------------|-----------------------------------------------------------------------------|
+| `DC50`             | Transformer-based regression for DC50 prediction                            |
+| `Dmax`             | Transformer-based regression for Dmax prediction                            |
+| `DC50 Classifier`  | Multi-class classification of DC50 activity levels using linker information |
+
+---
+
+### 📁 Output
+
+All results — including predicted **DC50**, **Dmax** values, or **classification labels** — are saved in the specified **output folder** during execution.
+
 
 ## 2.  Structure-Guided Modules
 
@@ -174,7 +215,8 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
     - **Optimizer**: Fine-tune generated structures.
     - **Scorer**: Rank generated molecules.
 
-
+it also has additional functionality one is to predict DC50 and Dmax via giving entire PROTAC molecule we Hvae transformer DMPNN based attention layer regression model to predict  it can run independtly via giving PROTAC you cna predict their DC50 and DMax
+So give entire PROTAC canonical SMILE it will predict DC50 and Dmax  than in second instance we have linker based DC50 classification  into 4 classes 
 Additional arguments:
 1. DC50 : Transformer based regressor to predict DC50 values 
 2. Dmax : Transformer based regressor to predict Dmax vaues
