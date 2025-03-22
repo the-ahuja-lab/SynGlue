@@ -119,9 +119,7 @@ To change Annotator strigency default is query fargment>= 25% and Target Fragmen
 ```
 
 <br>
-<div align="center">
   <img src="images/Asset_1.png" alt="Type Analysis" style="width: 35%; max-width: 300px; height: auto;">
-</div>
 <br>
 
 
