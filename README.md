@@ -5,7 +5,7 @@
 
 <br>
 <div align="center">
-<img src="images/Asset_2.png" alt="SynGlue architecture for PROTACs and molecular glue design via data-driven and structure-guided methods" ></div>
+<img src="images/Asset 2.png" alt="SynGlue architecture for PROTACs and molecular glue design via data-driven and structure-guided methods" ></div>
 <br>
 
 
