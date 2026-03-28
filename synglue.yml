@@ -1,0 +1,27 @@
+name: Magnet
+
+channels:
+  - conda-forge
+  - rdkit
+
+dependencies:
+  - python=3.8
+  - numpy
+  - pandas
+  - scikit-learn
+  - rdkit
+  - openbabel
+  - seaborn
+  - matplotlib
+  - joblib
+  - tqdm
+  - pip
+  - ipython
+  - pathos
+  - python-multipart
+
+  - pip:
+      - fastapi
+      - uvicorn
+      - xgboost
+      - torch
