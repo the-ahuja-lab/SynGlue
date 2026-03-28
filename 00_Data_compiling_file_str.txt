@@ -1,0 +1,13 @@
+00_Database/
+├── raw/
+│   ├── DrugBank/
+│   ├── BindingDB/
+│   ├── ChEMBL/
+│   ├── STITCH/
+│   ├── BioSNAP/
+│   ├── Small_Molecule_Suite/
+│   ├── PROTAC_DB/
+│   ├── PROTACpedia/
+│
+├── processed/
+├── final/
