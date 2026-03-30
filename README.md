@@ -1,13 +1,11 @@
-
 # SynGlue: A Generative AI Toolkit for PROTACs Decoding and Designing
 
- **SynGlue** is a powerful Python-based platform for the generation, analysis, and optimization of PROTACs (Proteolysis Targeting Chimeras), and multitarget molecules. Built for researchers in cheminformatics, structural biology, and drug discovery. SynGlue uses data-driven AI to accelerate the design of small molecules, predict degradation potency (DC₅₀, Dmax), and guide rational linker selection. SynGlue offers an end-to-end suite of tools for generating PROTACs and  their prioritising.
+**SynGlue** is a powerful Python-based platform for the generation, analysis, and optimization of PROTACs (Proteolysis Targeting Chimeras), and multitarget molecules. Built for researchers in cheminformatics, structural biology, and drug discovery. SynGlue uses data-driven AI to accelerate the design of small molecules, predict degradation potency (DC₅₀, Dmax), and guide rational linker selection. SynGlue offers an end-to-end suite of tools for generating PROTACs and their prioritising.
 
 <br>
 <div align="center">
 <img src="images/Asset 2.png" alt="SynGlue architecture for PROTACs and molecular glue design via data-driven and structure-guided methods" ></div>
 <br>
-
 
 <div align="left">
 
@@ -17,7 +15,7 @@
   <img src="https://img.shields.io/badge/python-3.9-blue">
   <img src="https://img.shields.io/badge/pypi-v0.1.6-orange">
   <img src="https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE">
-  <a href="https://colab.research.google.com/github/YOUR_USERNAME/YOUR_REPO/blob/main/notebook.ipynb">
+  <a href="https://colab.research.google.com/drive/1k3UyoqYU_zw6_GbdeaARe155dCi_JO6Q?usp=sharing">
     <img src="https://colab.research.google.com/assets/colab-badge.svg">
   </a>
   <a href="https://github.com/YOUR_USERNAME/YOUR_REPO">
@@ -27,45 +25,115 @@
 
 </div>
 
-
-
+---
 
 ## 🚀 Features
 
-- **Generative AI Models**: Leverage AI to design and optimize PROTACs and Multitargeting Molecules.
-- **Algorithm** : Fast Fragment Based TRIE data storage algorithm.
-- **Polypharmacology**: Classify molecules based on type and target mapping.
-- **Flexible API**: Easily integrate SynGlue into your workflows with a RESTful API powered by FastAPI.
-- **Cheminformatics Support**: Tools for molecular representation, manipulation, and analysis powered by RDKit.
-- **Modular Design**: SynGlue is built with multiple modules to perform tasks like browsing, computing , annotating, mapping target  and designing modalities molecules like PROTACs and multitarget molcules.
-  
+* **Generative AI Models** for PROTAC and multitarget molecule design
+* **TRIE-based fragment storage algorithm** for fast retrieval
+* **Polypharmacology classification**
+* **REST API integration via SynGlue client**
+* **RDKit-powered cheminformatics utilities**
+
+---
+
 # Installation
-You can install SynGlue using any of the following methods.
 
-**The package installation takes a few seconds to finish.**
-
-### 📦 Install from PyPI
+### 📦 Install API Client
 
 ```bash
-pip install SynGlue
-
+pip install synglue requests
 ```
 
-### 🧩 Clone and Install Locally
+### 🧩 Clone Repository (Optional)
 
 ```bash
-git clone <https://github.com/the-ahuja-lab/SynGlue.git>
+git clone https://github.com/the-ahuja-lab/SynGlue.git
 cd SynGlue
-pip install .
-
 ```
 
-### ⚙️ With `conda`:
-```bash
-conda install -c conda-forge synglue
+---
+
+# 🔌 SynGlue API Usage
+
+```python
+from synglue import SynGlue
+
+client = SynGlue()
+
+# Health check
+print(client.health_check())
 ```
 
-The conda-forge package for synglue is maintained here.
+---
+
+## 🚀 Design Workflow
+
+```python
+# Submit design job
+design_result = client.submit_design(target="EGFR", threshold=80)
+print(design_result)
+
+# Check status
+job_id = design_result["job_id"]
+print(client.design_status(job_id))
+
+# client.download_design(job_id, "design_results.zip")
+```
+
+---
+
+## 🔍 Screening Workflow (List)
+
+```python
+molecules = [
+    {"name": "Aspirin", "smiles": "CC(=O)Oc1ccccc1C(=O)O"},
+    {"name": "Imatinib", "smiles": "CC1=CC=CC=C1"}
+]
+
+screen_result = client.submit_screen(molecules=molecules)
+print(screen_result)
+
+job_id = screen_result["job_id"]
+print(client.screen_status(job_id))
+
+# client.download_screen(job_id, "screen_results.zip")
+```
+
+---
+
+## 📂 Screening Workflow (CSV)
+
+```python
+csv_path = "query.csv"
+
+screen_result = client.submit_screen_csv(csv_path)
+print(screen_result)
+
+job_id = screen_result["job_id"]
+print(client.screen_status(job_id))
+```
+
+---
+
+# 📡 API Endpoints (Client Methods)
+
+### 🔹 Core
+
+* `health_check()`
+
+### 🔹 Design
+
+* `submit_design(target, threshold=75.0)`
+* `design_status(job_id)`
+* `download_design(job_id, out_path)`
+
+### 🔹 Screening
+
+* `submit_screen(molecules)`
+* `submit_screen_csv(csv_path)`
+* `screen_status(job_id)`
+* `download_screen(job_id, out_path)`
 
 ---
 
@@ -73,226 +141,62 @@ The conda-forge package for synglue is maintained here.
 
 SynGlue offers a two-part approach:
 
-- **Data-Driven**
-    - Utilize structural databases to extract terminal fragments, ligands, and target mappings.
-    - Map input molecules, annotate types and targets, and generate optimized molecules.
-- **Structure-Guided**
-    - Input structures from databases like PDB, AlphaFold, or Rosetta.
-    - Use the **GCoupler** module to synthesize molecules till Authenticator.
-    - Employ warhead selection and scoring tools for optimization.
-      
+* **Data-Driven**
+
+  * Map input molecules, annotate types and targets, and generate optimized molecules.
+
+* **Structure-Guided**
+
+  * Use structural inputs (PDB, AlphaFold, Rosetta)
+  * Perform warhead mapping and molecule generation
+
 ---
-## 1.  📊 Data-Driven Modules
 
-### 1.1 **MagnetDB Database**
+## 📊 Type Analysis
 
-- Browse through compound data and visualize results.
-- Backend: A database containing terminal fragments, ligands, and their targets.
-
-```bash
->>> import MagnetDatabase as db
-```
-
-### 1.2 **Computator**
-
-- Map queries to relevant compound data and retrieve matching ligands and fragments.
-
-```bash
->>> import Computator as comp
-```
-
-
-### 1.3  **Annotator**
-
-- Annotate compounds with molecular type, target information, and functional groups.
-```bash
->>> import Annotator as ant
-```
-To calculate the types and functional groups  of mapped compounds
-
-```bash
->>>ant.types(path='pre-set default Output folder/')
-```
-
-To change Annotator strigency default is query fargment>= 25% and Target Fragment 75%
-```bash
->>> ant.thershold('query_fragment >=x' ; target_fragment >=y)
-```
-
-#### Type Analysis
 <br>
-  <img src="images/Asset_1.png" alt="Type Analysis" style="width: 35%; max-width: 300px; height: auto;">
+<img src="images/Asset_1.png" alt="Type Analysis" style="width: 35%; max-width: 300px; height: auto;">
 <br>
 
+| Classification               | Type   |
+| ---------------------------- | ------ |
+| **Monovalent, Monotarget**   | Type 1 |
+| **Monovalent, Multitarget**  | Type 2 |
+| **Multivalent, Monotarget**  | Type 3 |
+| **Multivalent, Multitarget** | Type 4 |
 
-| Classification                   | Type  |
-|----------------------------------|-------|
-| **Monovalent, Monotarget**       | Type 1 |
-| **Monovalent, Multitarget**      | Type 2 |
-| **Multivalent, Monotarget**      | Type 3 |
-| **Multivalent, Multitarget**     | Type 4 |
-
-
-### 1.4  **Warhead Mapper and Generator**
-
-
-- Map potential warheads for specific targets during drug design workflows.
-```bash
->>> import Warhead Mapper as wm
-```
-  
-```bash
->>> wm.targets('Target1', E3ligand)
-```
-
-- Generate new molecules based on input data.
-- Includes:
-    - **Optimizer**: Fine-tune generated structures.
-    - **Scorer**: Rank generated molecules.
- 
-```bash
->>> import Generator as gn
-```
-
-
-## Advanced Prediction Utilities 
-
-In addition to generating and prioritizing novel PROTAC and multitarget molecules, **SynGlue Module 4** also offers predictive functionality for key degradation metrics using state-of-the-art models.
-
-
-### 🧠 DC50 & Dmax Prediction via Transformer-DMPNN Regression
-
-Simply input the **canonical SMILES of the full PROTAC molecule**, and the model will predict:
-
-- **DC50** – the half-maximal degradation concentration  
-- **Dmax** – the maximum degradation response  
-
-These predictions are powered by a **Transformer + D-MPNN (Directed Message Passing Neural Network)** regression model with an attention layer, enabling accurate mapping from molecular structure to degradation activity.
-
-✅ This module can run **independently** — just provide the full PROTAC SMILES.
-
-
-### 🔗 Linker-based DC50 Classification
-
-A separate classifier is available to **predict DC50 classes** based solely on the **linker** component of the PROTAC.
-
-The model categorizes the linker into one of **four degradation activity classes**, based on training with annotated linker datasets.
-
-✅ This module can alsdo run **independently** — just provide the linker SMILES.
-
-
-### ⚙️ Additional Arguments
-
-| Argument           | Description                                                                 |
-|--------------------|-----------------------------------------------------------------------------|
-| `DC50`             | Transformer-based regression for DC50 prediction                            |
-| `Dmax`             | Transformer-based regression for Dmax prediction                            |
-| `DC50 Classifier`  | Multi-class classification of DC50 activity levels using linker information |
-
-
-### 📁 Output
-
-All results — including predicted **DC50**, **Dmax** values, or **classification labels** — are saved in the specified **output folder** during execution.
-
-
----------
-
-
-
-## 2.  🧬 Structure-Guided Modules
-
-### 2.1    **PDB Selection**
-
-- Use protein structures from databases like PDB, AlphaFold, or Rosetta.
-
-### 2.2    **De Novo Molecule Synthesis**
-
-- Synthesize molecules based on druggable cavities using third-party tools like GCoupler, SiteMap, or Pocket2mol.
-
-### 2.3   **Warhead Mapper**
-
-- Map and rank the top synthesized molecules for specific targets.
-
-### 2.4    **Generator**
-
-- Generate new molecules based on input data.
-- Includes:
-    - **Optimizer**: Fine-tune generated structures.
-    - **Scorer**: Rank generated molecules.
-
-#### 🔧 Additional Functionality
-
-The Generator module also includes predictive capabilities for assessing PROTAC performance metrics as mentioned above advanced prediction utilities also work for structure guided  designed PROTACs.
-
-
-##### Output folder
-The output folder will contain the following files at the end of the successful execution of the Generator module
-| Files | Description |
-| -------- | -------- |
-| CSV files | Generated molecules with the predicted DC50 , Dmax |
-
-
+---
 
 ## Tutorials
-To run SynGlue, we have prepared a set of tutorials to help you get started. These tutorials are designed for beginners and eaily runnable.
-You can run them directly in Google Colab using the links below. However, you will need an license key to use SynGlue.
 
+| Tutorial          | Description               | Colab Link                                                                                             |
+| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------------------ |
+| PROTAC Generation | Generate PROTAC molecules | [Open in Colab](https://colab.research.google.com/drive/1k3UyoqYU_zw6_GbdeaARe155dCi_JO6Q?usp=sharing) |
+| Target Mapping    | Screen and map targets    | [Open in Colab](https://colab.research.google.com/drive/1WgG_T-rD5sODGFpq9GQzi7vXctpq5neo?usp=sharing) |
 
-| Tutorial | Difficulty | Colab Link |
-|----------|------------|------------|
-| 1. Magnet Database  | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
-| 2. Data Driven Computator and Annotator | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
-| 3. Data Driven Generator  | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
-| 4. PROTAC Priortization | ![Level](https://img.shields.io/badge/Level-Beginner-green) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
-| 5. Structure Guided Generator | ![Level](https://img.shields.io/badge/Level-Intermediate-yellow) | [![Open in Colab](https://colab.research.google.com/assets/colab-badge.svg)](YOUR_COLAB_LINK) |
+---
 
 ## Summary
 
-SynGlue is a comprehensive toolkit that combines **data-driven** and **structure-guided** methodologies to design and analyze PROTACs. It enables researchers to:
+SynGlue enables:
 
-- Map and annotate molecules with structural and functional insights.
-- Optimize molecular generation workflows for drug discovery.
-- Integrate easily into existing pipelines via a RESTful API.
-- Small Cheminformatics workflow like  type classification of molecule , fucntional group check , target mapping , highlight molecule , finding common substructure , fargment molecule rdFCMS.
+* PROTAC design and prioritization
+* Target mapping and screening
+* Integration into automated drug discovery pipelines
+
+---
 
 ## Dependencies
 
-- **fastapi** (v0.95.2) — API server
-- **uvicorn** (v0.22.0) — ASGI server for FastAPI
-- **requests** (v2.31.0) — HTTP requests
-- **pandas** (v1.5.3) — Data manipulation
-- **rdkit** (v2023.03.1) — Cheminformatics toolkit
-- **setuptools** (v67.6.1) — Python packaging
-- **biopython** (v1.81) — Bioinformatics tasks
-- **matplotlib** (v3.7.1) — Data visualization
-- **scikit-learn** (v1.2.2) — Machine learning
-- **seaborn** (v0.12.2) — Data visualization
-- **scipy** (v1.10.1) — Scientific computing
-- **tqdm** (v4.65.0) — Progress bars
+* Python ≥ 3.7
+* requests
+
+```bash
+pip install requests
+```
+
+---
 
 ## License
 
 SynGlue is licensed under the MIT License. See [LICENSE](https://www.notion.so/saveenasolanki/LICENSE) for more details.
-
-
-## Resources
-
-### Inspiration  
-Many existing works greatly inspired this project! Here is a non-exhaustive list:
-
-- 📚 [Reinvent4](https://github.com/MolecularAI/REINVENT4) — A molecular design tool for linker design.  
-- 📚 [DeepChem](https://deepchem.readthedocs.io/en/latest/api_reference/models.html) — A pioneer in writing DL programs in many different ways! Has been a huge inspiration for us.  
-- 📚 [GCoupler](https://github.com/the-ahuja-lab/Gcoupler) — An integrative approach combining de novo ligand design, statistical methods, and Graph Neural Networks for rational prediction of high-affinity ligands.  
-
-
------------------------
-
-## Acknowledgments
-
-- Thanks to the **RDKit team** for their powerful cheminformatics toolkit.
-- Gratitude to the contributors and maintainers of **FastAPI**, **Uvicorn**, and other open-source libraries used in this project.
-
-
-
-## Contributors 
-
