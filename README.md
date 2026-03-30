@@ -83,7 +83,7 @@ print(client.design_status(job_id))
 
 ---
 
-## 🔍 Screening Workflow (List)
+## 🔍 Target Mapping  Workflow (List)
 
 ```python
 molecules = [
@@ -102,7 +102,7 @@ print(client.screen_status(job_id))
 
 ---
 
-## 📂 Screening Workflow (CSV)
+## 📂 Target Mapping Workflow (CSV)
 
 ```python
 csv_path = "query.csv"
