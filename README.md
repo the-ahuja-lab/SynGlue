@@ -1,202 +1,120 @@
-# SynGlue: A Generative AI Toolkit for PROTACs Decoding and Designing
-
-**SynGlue** is a powerful Python-based platform for the generation, analysis, and optimization of PROTACs (Proteolysis Targeting Chimeras), and multitarget molecules. Built for researchers in cheminformatics, structural biology, and drug discovery. SynGlue uses data-driven AI to accelerate the design of small molecules, predict degradation potency (DC₅₀, Dmax), and guide rational linker selection. SynGlue offers an end-to-end suite of tools for generating PROTACs and their prioritising.
-
-<br>
-<div align="center">
-<img src="images/Asset 2.png" alt="SynGlue architecture for PROTACs and molecular glue design via data-driven and structure-guided methods" ></div>
-<br>
-
-<div align="left">
-
-<p>
-  <img src="https://img.shields.io/badge/License-MIT-blue.svg">
-  <img src="https://img.shields.io/badge/docs-passing-green">
-  <img src="https://img.shields.io/badge/python-3.9-blue">
-  <img src="https://img.shields.io/badge/pypi-v0.1.6-orange">
-  <img src="https://img.shields.io/conda/vn/conda-forge/YOUR_PACKAGE">
-  <a href="https://colab.research.google.com/drive/1k3UyoqYU_zw6_GbdeaARe155dCi_JO6Q?usp=sharing">
-    <img src="https://colab.research.google.com/assets/colab-badge.svg">
-  </a>
-  <a href="https://github.com/YOUR_USERNAME/YOUR_REPO">
-    <img src="https://img.shields.io/badge/Code-Source-black">
-  </a>
+<p align="center">
+  <img src="branding/banner.svg" alt="SynGlue — Generative AI for Targeted Protein Degradation" width="100%">
 </p>
 
+> **Designing molecules that control protein fate.** SynGlue is a computational platform for
+> decoding and designing PROTACs — generative AI, interaction modelling, and degradation
+> prediction in one end-to-end toolkit.
+
+---
+
+## Why this problem matters
+
+Targeted protein degradation works by redirecting cellular machinery: a small molecule brings
+an E3 ligase into productive contact with a disease protein, marking it for destruction.
+Yet apparently similar PROTACs produce very different degradation outcomes. The warhead alone
+does not decide the outcome — the **whole ternary system** does.
+
+## Scientific question
+
+*Why do apparently similar PROTACs produce very different degradation outcomes — and how can
+we design the molecule that creates the right interaction?*
+
+## Concept
+
+<div align="center">
+  <img src="images/Asset 2.png" alt="SynGlue architecture for PROTAC design via data-driven and structure-guided methods">
 </div>
 
----
+## What the system does
 
-## 🚀 Features
+SynGlue approaches PROTAC design as a coupled molecular-design problem:
 
-* **Generative AI Models** for PROTAC and multitarget molecule design
-* **TRIE-based fragment storage algorithm** for fast retrieval
-* **Polypharmacology classification**
-* **REST API integration via SynGlue client**
-* **RDKit-powered cheminformatics utilities**
+> Target ligand + E3-ligase ligand + linker + ternary-complex geometry + degradation behaviour
 
----
+rather than treating the warhead as the sole determinant of degrader activity. The platform
+supports **molecular generation, linker reasoning, degradation modelling (DC₅₀, Dmax) and
+structure-informed prioritisation** for PROTACs and multitarget molecules.
 
-# Installation
+Two complementary workflows:
 
-### 📦 Install API Client
+- **Data-driven** — map input molecules, annotate types and targets, generate optimised molecules
+- **Structure-guided** — use structural inputs (PDB, AlphaFold, Rosetta) for warhead mapping and molecule generation
+
+## Main methodological contributions
+
+- **Generative AI models** for PROTAC and multitarget molecule design
+- **TRIE-based fragment storage** for fast molecular retrieval
+- **Polypharmacology classification** — Type 1–4 (mono/multivalent × mono/multitarget)
+- **REST API** with a lightweight Python client (`synglue`)
+- **RDKit-powered cheminformatics utilities**
+
+## Benchmark & validation
+
+Predictions of degradation potency (DC₅₀, Dmax) and design-prioritisation benchmarks accompany
+the forthcoming manuscript; the platform ships with interactive Colab tutorials for
+reproducing the design and screening workflows.
+
+## Installation
 
 ```bash
 pip install synglue requests
 ```
 
-### 🧩 Clone Repository (Optional)
+Optional: clone the repository for the full source.
 
-```bash
-git clone https://github.com/the-ahuja-lab/SynGlue.git
-cd SynGlue
-```
-
----
-
-# 🔌 SynGlue API Usage
+## Quick start
 
 ```python
 from synglue import SynGlue
 
 client = SynGlue()
-
-# Health check
 print(client.health_check())
-```
 
----
-
-## 🚀 Design Workflow
-
-```python
-# Submit design job
+# Submit a design job
 design_result = client.submit_design(target="EGFR", threshold=80)
-print(design_result)
-
-# Check status
 job_id = design_result["job_id"]
 print(client.design_status(job_id))
-
-# client.download_design(job_id, "design_results.zip")
 ```
 
----
+## Examples
 
-## 🔍 Target Mapping  Workflow (List)
+**Screen molecules (list):**
 
 ```python
 molecules = [
     {"name": "Aspirin", "smiles": "CC(=O)Oc1ccccc1C(=O)O"},
-    {"name": "Imatinib", "smiles": "CC1=CC=CC=C1"}
+    {"name": "Imatinib", "smiles": "CC1=CC=CC=C1"},
 ]
-
 screen_result = client.submit_screen(molecules=molecules)
-print(screen_result)
-
 job_id = screen_result["job_id"]
 print(client.screen_status(job_id))
-
-# client.download_screen(job_id, "screen_results.zip")
 ```
 
----
-
-## 📂 Target Mapping Workflow (CSV)
+**Screen molecules (CSV):**
 
 ```python
-csv_path = "query.csv"
-
-screen_result = client.submit_screen_csv(csv_path)
-print(screen_result)
-
+screen_result = client.submit_screen_csv("query.csv")
 job_id = screen_result["job_id"]
 print(client.screen_status(job_id))
 ```
 
----
+**Client methods:** `health_check` · `submit_design` / `design_status` / `download_design` ·
+`submit_screen` / `submit_screen_csv` / `screen_status` / `download_screen`
 
-# 📡 API Endpoints (Client Methods)
+## Reproducibility
 
-### 🔹 Core
+- [PROTAC generation tutorial — Colab](https://colab.research.google.com/drive/1k3UyoqYU_zw6_GbdeaARe155dCi_JO6Q?usp=sharing)
+- [Target mapping & screening tutorial — Colab](https://colab.research.google.com/drive/1WgG_T-rD5sODGFpq9GQzi7vXctpq5neo?usp=sharing)
 
-* `health_check()`
+## Citation
 
-### 🔹 Design
+Citation details will be added with the forthcoming manuscript.
 
-* `submit_design(target, threshold=75.0)`
-* `design_status(job_id)`
-* `download_design(job_id, out_path)`
+## Team
 
-### 🔹 Screening
-
-* `submit_screen(molecules)`
-* `submit_screen_csv(csv_path)`
-* `screen_status(job_id)`
-* `download_screen(job_id, out_path)`
-
----
-
-## SynGlue Workflow
-
-SynGlue offers a two-part approach:
-
-* **Data-Driven**
-
-  * Map input molecules, annotate types and targets, and generate optimized molecules.
-
-* **Structure-Guided**
-
-  * Use structural inputs (PDB, AlphaFold, Rosetta)
-  * Perform warhead mapping and molecule generation
-
----
-
-## 📊 Type Analysis
-
-<br>
-<img src="images/Asset_1.png" alt="Type Analysis" style="width: 35%; max-width: 300px; height: auto;">
-<br>
-
-| Classification               | Type   |
-| ---------------------------- | ------ |
-| **Monovalent, Monotarget**   | Type 1 |
-| **Monovalent, Multitarget**  | Type 2 |
-| **Multivalent, Monotarget**  | Type 3 |
-| **Multivalent, Multitarget** | Type 4 |
-
----
-
-## Tutorials
-
-| Tutorial          | Description               | Colab Link                                                                                             |
-| ----------------- | ------------------------- | ------------------------------------------------------------------------------------------------------ |
-| PROTAC Generation | Generate PROTAC molecules | [Open in Colab](https://colab.research.google.com/drive/1k3UyoqYU_zw6_GbdeaARe155dCi_JO6Q?usp=sharing) |
-| Target Mapping    | Screen and map targets    | [Open in Colab](https://colab.research.google.com/drive/1WgG_T-rD5sODGFpq9GQzi7vXctpq5neo?usp=sharing) |
-
----
-
-## Summary
-
-SynGlue enables:
-
-* PROTAC design and prioritization
-* Target mapping and screening
-* Integration into automated drug discovery pipelines
-
----
-
-## Dependencies
-
-* Python ≥ 3.7
-* requests
-
-```bash
-pip install requests
-```
-
----
+[The Ahuja Lab](https://github.com/the-ahuja-lab) — computational biology and molecular AI.
 
 ## License
 
-SynGlue is licensed under the MIT License. See [LICENSE](https://www.notion.so/saveenasolanki/LICENSE) for more details.
+MIT — see [`LICENSE.txt`](LICENSE.txt).

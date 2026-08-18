@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 300" role="img" aria-label="SynGlue — Designing molecules that control protein fate.">
+<rect width="1400" height="300" fill="#FFFDF9"/>
+<rect x="18" y="18" width="1364" height="264" rx="16" fill="none" stroke="#E5D8C4" stroke-width="1.2"/>
+<polygon points="140.8,98.0 140.8,122.0 120.0,134.0 99.2,122.0 99.2,98.0 120.0,86.0" fill="none" stroke="#A98552" stroke-width="2.0" stroke-linejoin="round"/><circle cx="163.2" cy="105.2" r="3.2" fill="#A98552"/><circle cx="93.6" cy="131.6" r="3.2" fill="#A98552"/><circle cx="105.6" cy="88.4" r="3.2" fill="#A98552"/>
+<polygon points="229.7,186.5 229.7,203.5 215.0,212.0 200.3,203.5 200.3,186.5 215.0,178.0" fill="none" stroke="#CDB585" stroke-width="2.0" stroke-linejoin="round"/><circle cx="245.6" cy="191.6" r="3.2" fill="#CDB585"/><circle cx="196.3" cy="210.3" r="3.2" fill="#CDB585"/><circle cx="204.8" cy="179.7" r="3.2" fill="#CDB585"/>
+<text x="640" y="118" text-anchor="middle" font-family="Georgia, Times New Roman, serif" font-size="46" font-weight="700" fill="#29231E" letter-spacing="2">SynGlue</text>
+<text x="640" y="158" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="19" font-weight="600" fill="#A98552" letter-spacing="4">GENERATIVE AI FOR TARGETED PROTEIN DEGRADATION</text>
+<text x="640" y="196" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="15.5" fill="#70665B">Designing molecules that control protein fate.</text>
+<line x1="470" y1="216" x2="810" y2="216" stroke="#CDB585" stroke-width="1.4"/>
+<line x1="1228.0" y1="134.0" x2="1254.0" y2="162.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><line x1="1228.0" y1="134.0" x2="1280.0" y2="130.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><line x1="1254.0" y1="162.0" x2="1304.0" y2="156.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><line x1="1280.0" y1="130.0" x2="1304.0" y2="156.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><line x1="1280.0" y1="130.0" x2="1330.0" y2="136.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><line x1="1304.0" y1="156.0" x2="1330.0" y2="136.0" stroke="#29231E" stroke-width="1.4" opacity="0.55"/><circle cx="1228.0" cy="134.0" r="5" fill="#29231E"/><circle cx="1254.0" cy="162.0" r="5" fill="#29231E"/><circle cx="1280.0" cy="130.0" r="5" fill="#29231E"/><circle cx="1304.0" cy="156.0" r="5" fill="#29231E"/><circle cx="1330.0" cy="136.0" r="5" fill="#29231E"/>
+<line x1="60" y1="258" x2="1340" y2="258" stroke="#E5D8C4" stroke-width="1"/>
+<text x="640" y="280" text-anchor="middle" font-family="Segoe UI, Helvetica, Arial, sans-serif" font-size="12" letter-spacing="3" fill="#70665B">REDIRECT PROTEIN FATE · THE AHUJA LAB</text>
+</svg>
