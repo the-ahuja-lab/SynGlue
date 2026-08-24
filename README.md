@@ -1,6 +1,3 @@
-<p align="center">
-  <img src="branding/banner.svg" alt="SynGlue — Generative AI for Targeted Protein Degradation" width="100%">
-</p>
 
 > **Designing molecules that control protein fate.** SynGlue is a computational platform for
 > decoding and designing PROTACs — generative AI, interaction modelling, and degradation
