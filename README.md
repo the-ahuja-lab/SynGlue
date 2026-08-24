@@ -1,6 +1,6 @@
 
 > **Designing molecules that control protein fate.** SynGlue is a computational platform for
-> decoding and designing PROTACs — generative AI, interaction modelling, and degradation
+> decoding and designing PROTACs generative AI, interaction modelling, and degradation
 > prediction in one end-to-end toolkit.
 
 ---
@@ -99,9 +99,6 @@ print(client.screen_status(job_id))
 
 Citation details will be added with the forthcoming manuscript.
 
-## Team
-
-[The Ahuja Lab](https://github.com/the-ahuja-lab) — computational biology and molecular AI.
 
 ## License
 
