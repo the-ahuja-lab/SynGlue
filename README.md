@@ -5,13 +5,6 @@
 
 ---
 
-## Why this problem matters
-
-Targeted protein degradation works by redirecting cellular machinery: a small molecule brings
-an E3 ligase into productive contact with a disease protein, marking it for destruction.
-Yet apparently similar PROTACs produce very different degradation outcomes. The warhead alone
-does not decide the outcome — the **whole ternary system** does.
-
 ## Scientific question
 
 *Why do apparently similar PROTACs produce very different degradation outcomes — and how can
@@ -23,7 +16,7 @@ we design the molecule that creates the right interaction?*
   <img src="images/Asset 2.png" alt="SynGlue architecture for PROTAC design via data-driven and structure-guided methods">
 </div>
 
-## What the system does
+## SynGlue
 
 SynGlue approaches PROTAC design as a coupled molecular-design problem:
 
