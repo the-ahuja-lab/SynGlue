@@ -96,8 +96,6 @@ job_id = screen_result["job_id"]
 print(client.screen_status(job_id))
 ```
 
-**Client methods:** `health_check` · `submit_design` / `design_status` / `download_design` ·
-`submit_screen` / `submit_screen_csv` / `screen_status` / `download_screen`
 
 ## Reproducibility
 
