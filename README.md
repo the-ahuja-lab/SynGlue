@@ -33,15 +33,18 @@ Two complementary workflows:
 
 ## Main methodological contributions
 
-- **Generative AI models** for PROTAC and multitarget molecule design
-- **TRIE-based fragment storage** for fast molecular retrieval
-- **Polypharmacology classification** — Type 1–4 (mono/multivalent × mono/multitarget)
-- **REST API** with a lightweight Python client (`synglue`)
-- **RDKit-powered cheminformatics utilities**
+- **Generative AI models**  for de novo PROTAC and multitarget molecular design
+- **Integrated warhead–E3** ligand-linker design and optimization
+- **TRIE-based fragment storage** and rapid molecular retrieval
+- **Polypharmacology-aware** — Type 1-4 molecular classification
+- **Machine-learning** prediction of degradation activity, DC50 and Dmax
+- **Integrated ADMET**, drug-likeness and multi-objective candidate ranking
+- End-to-end deployable platform with **RDKit utilities**, **REST API** and **Python client**
+
 
 ## Benchmark & validation
 
-Predictions of degradation potency (DC₅₀, Dmax) and design-prioritisation benchmarks accompany
+Predictions of degradation potency (DC50, Dmax) and design-prioritisation benchmarks accompany
 the forthcoming manuscript; the platform ships with interactive Colab tutorials for
 reproducing the design and screening workflows.
 
@@ -97,7 +100,9 @@ print(client.screen_status(job_id))
 
 ## Citation
 
-Citation details will be added with the forthcoming manuscript.
+Generative AI Framework SynGlue for the Rational Design of Clinically relevant Protein Degraders
+Saveena Solanki, Sanjay Kumar Mohanty, Shiva Satija, Sonam Chauhan, N.V.M. Rao Bandaru, Sandeep Dukare, Nirbhay Kumar Tiwari, R Naveen Kumar, A B Aravind, Subhendu Mukherjee, Dinesh Chikkanna, Wesley Roy Balasubramanian, Srinivasa Raju Sammeta, Vishakha Gautam, Sakshi Arora, Suvendu Kumar, Subhadeep Duari, Arushi Sharma, Raidhani Shome, Debarka Sengupta, Chandrasekhar Abbineni, Susanta Samajdar, Gaurav Ahuja
+bioRxiv 2025.08.28.672835; doi: https://doi.org/10.1101/2025.08.28.672835
 
 
 ## License
