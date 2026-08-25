@@ -100,10 +100,12 @@ print(client.screen_status(job_id))
 
 ## Citation
 
-Generative AI Framework SynGlue for the Rational Design of Clinically relevant Protein Degraders
-Saveena Solanki, Sanjay Kumar Mohanty, Shiva Satija, Sonam Chauhan, N.V.M. Rao Bandaru, Sandeep Dukare, Nirbhay Kumar Tiwari, R Naveen Kumar, A B Aravind, Subhendu Mukherjee, Dinesh Chikkanna, Wesley Roy Balasubramanian, Srinivasa Raju Sammeta, Vishakha Gautam, Sakshi Arora, Suvendu Kumar, Subhadeep Duari, Arushi Sharma, Raidhani Shome, Debarka Sengupta, Chandrasekhar Abbineni, Susanta Samajdar, Gaurav Ahuja
-bioRxiv 2025.08.28.672835; doi: https://doi.org/10.1101/2025.08.28.672835
+If you use SynGlue in your research, please cite:
 
+Solanki S, Mohanty SK, Satija S, Chauhan S, Bandaru NVMR, Dukare S, Tiwari NK, Kumar RN, Aravind AB, Mukherjee S, Chikkanna D, Balasubramanian WR, Sammeta SR, Gautam V, Arora S, Kumar S, Duari S, Sharma A, Shome R, Sengupta D, Abbineni C, Samajdar S, Ahuja G.
+Generative AI Framework SynGlue for the Rational Design of Clinically Relevant Protein Degraders.
+bioRxiv (2025), 2025.08.28.672835.
+https://doi.org/10.1101/2025.08.28.672835
 
 ## License
 
