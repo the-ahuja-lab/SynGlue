@@ -1,5 +1,8 @@
+# runtime outputs — never commit results or binaries
 outputs/
-figures/
+figures/*
+!figures/README.md
+!figures/scripts
 *.pt
 *.pth
 *.joblib
