@@ -1,0 +1,24 @@
+# Locked environment for the reproduction bundle (main).
+# Generated from the audit environment; pin exactly for byte-level reproducibility.
+name: synglue-repro
+channels: [conda-forge, pytorch, rdkit]
+dependencies:
+  - python=3.10.20
+  - numpy=2.2.6
+  - pandas=2.3.3
+  - scipy=1.15.3
+  - scikit-learn=1.7.2
+  - matplotlib=3.10.9
+  - rdkit=2024.09.6
+  - pyarrow
+  - openpyxl
+  - xgboost=3.2.0
+  - pytorch=2.12.1
+  - pip
+  - pip:
+      - joblib
+      - tqdm
+      - pytest
+      - umap-learn
+# legacy environment for archived pickles (see environment/software_versions.json):
+#   numpy==1.21.5 scikit-learn==1.0.2 scipy==1.7.3

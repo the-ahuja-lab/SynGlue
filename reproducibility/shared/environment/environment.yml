@@ -1,0 +1,31 @@
+name: synglue
+channels:
+  - conda-forge
+  - rdkit
+dependencies:
+  - python=3.10
+  - numpy>=1.26
+  - pandas
+  - scikit-learn>=1.3
+  - rdkit>=2023.9
+  - matplotlib
+  - seaborn
+  - scipy
+  - joblib
+  - tqdm
+  - pyarrow
+  - openpyxl
+  - xgboost
+  - lightgbm
+  - pytorch::pytorch
+  - pip
+  - pip:
+      - umap-learn
+      - shap
+      - molfeat
+      - fastapi
+      - uvicorn
+# Notes
+#  - GROVER embeddings require the patched GROVER checkout (see pipeline/ and models/).
+#  - ADMET properties require admet_ai==1.4.0 in a separate environment (env/admet.yml).
+#  - Comparator runners have their own environments (pdp, protac-stan, protacdc50, DeLinker-env, ...).

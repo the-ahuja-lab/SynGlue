@@ -1,0 +1,110 @@
+# SynGlue — reproducibility bundle (organised by model)
+
+Reproduction code, configurations, splits, predictions, metrics, tests and environments for the
+SynGlue manuscript. **Code and metadata only** — no model binaries, no datasets, no figure outputs.
+
+## Layout — one folder per model
+
+```
+reproducibility/
+├── README.md                        this file
+├── MANUSCRIPT_TO_CODE.md            claim → code → artifact → status map
+├── MANIFEST.csv                     every file with SHA256 + original source path
+├── RUN_STEPS.md                     the nine ordered steps and their outputs
+├── run_all.sh                       runs the light steps in order
+│
+├── endpoint_regression/             MODEL 1 — component-aware Transformer + DC50/Dmax RF regressors
+│   ├── README.md                    architecture, configs, splits, predictions, metrics, status
+│   ├── scripts/                     01_prepare_components.py … 06_check_data_leakage.py
+│   ├── configs/                     transformer.yaml · rf_dc50.yaml · rf_dmax.yaml
+│   ├── splits/                      transformer_train_val.csv · rf_train_test.csv ·
+│   │                                scaffold_test.csv · target_test.csv
+│   ├── predictions/                 dc50_predictions.csv · dmax_predictions.csv
+│   └── metrics/                     regression_metrics_recovered.csv · leakage_report.csv
+│
+├── linker_multiclass/               MODEL 2 — independent 4-class linker classifier
+│   ├── README.md                    model, features, protocols, metrics, limitations
+│   ├── scripts/                     08_train_linker_classifier.py
+│   ├── configs/                     linker_classifier.yaml
+│   ├── splits/                      linker_cv_folds.csv
+│   ├── predictions/                 linker_oof_predictions.csv
+│   └── metrics/                     linker_grouped_metrics.json
+│
+├── external_benchmark/              comparator evaluation and external populations
+│   ├── README.md                    populations, leakage rules, AUROCs, denominators
+│   ├── scripts/                     07_evaluate_external.py
+│   ├── splits/                      external_test.csv
+│   ├── predictions/                 external_predictions.csv · comparator_predictions.csv
+│   └── metrics/                     comparator_metrics.csv · comparator_denominators.json ·
+│                                    external_funnel_counts.csv
+│
+├── figures/                         computational figure generation
+│   ├── README.md                    figure list + manuscript panel mapping
+│   └── scripts/                     09_reproduce_figures.py
+│
+├── shared/                          utilities, environments, artifact hashes, global index
+│   ├── README.md                    path resolution, versions, integrity notes
+│   ├── _common.py · ARTIFACTS.md · sha256_manifest.txt · mapped_index.csv
+│   └── environment/                 environment.lock.yml · software_versions.json ·
+│                                    environment.yml · requirements-legacy.txt · README.md
+│
+├── tests/                           test_checkpoint_load.py · test_split_independence.py ·
+│                                    test_prediction_reproduction.py · test_metrics.py
+│
+├── legacy_code/                     full role-based code library
+│   └── model_code/ analysis/ comparators/ data_prep/ inference/ pipeline/ plots/ misc/ notebooks/
+│
+├── outputs/                         runtime outputs (git-ignored)
+└── figures/                         runtime figures (git-ignored)
+```
+
+## The two model families (do not conflate)
+
+| | Endpoint regression | Linker multiclass |
+|---|---|---|
+| Folder | `endpoint_regression/` | `linker_multiclass/` |
+| Model | 4-head, 2-layer Transformer (4,800→512, no positional embedding) + two RF regressors (500 trees, depth 20) | GradientBoostingClassifier on 4,800 features |
+| Task | DC50 (log10 nM) and Dmax (%) regression | 4-class DC50-derived linker potency |
+| Artifact | `multitask_transformer.pt` (9,026,563 params, SHA256 `630783ce…`) + `rf_dc50/rf_dmax.joblib` | `linker_classifier.pkl` (md5 `d5204351…`) |
+| Evaluation | random / scaffold / target / E3 splits | original (test-selected) + grouped GroupKFold |
+| Status | DC50 split metrics reproduced | protocol corrected; grouped AUROC 0.8035 (ChemBERTa) |
+
+A third, separate family — an **8-head, 3-layer, positional-embedding** model (12,327,054 params) —
+belongs to the two-stage analysis and is kept in `legacy_code/model_code/`.
+
+## Quick start
+
+```bash
+export SYNGLUE_ROOT=/path/to/SynGlue
+export SYNGLUE_PY_ROOT=/path/to/SynGlue_Py
+export SYNGLUE_DATA_ROOT=/path/to/curated/tables
+export GROVER_DIR=/path/to/grover_patched       # step 01 only
+export GROVER_CKPT=/path/to/grover_fixed.pt     # step 01 only
+
+bash reproducibility/run_all.sh                 # steps 05–09 on available artifacts
+python reproducibility/tests/../tests -m pytest # verification suite
+```
+
+## Verified in this environment
+
+| Step | Result |
+|---|---|
+| 06 leakage | mapped rows 9,252; Random shares **921** compound IDs (1,264 test rows); Target **522** (778); Scaffold/E3 **0**; external overlap **0** |
+| 07 external | funnel **2,930 → 2,562 → 2,484 / 2,431 / 2,256**; AUROC ≤100 nM: SynGlue three-token **0.756** (n=71), whole-PROTAC **0.617** (n=1,700), PDP 0.650, PDP-XGB 0.648, PROTAC-STAN 0.543 |
+| 08 linker (grouped) | ChemBERTa, 5-fold GroupKFold by linker identity, zero overlap: macro OVR AUROC **0.8035**, macro-F1 0.5197, MCC 0.3580 |
+| 05 regression | Random **0.7568** (n=381), Scaffold **0.5665** (n=173), Target **0.8264** (n=277), E3 −0.154 (n=719) |
+| tests | 7 passed, 3 skipped |
+
+## Honest limitations
+
+- Step 01 implements the deposited **first-match** mapping (`--structure-map` gives the
+  structure-based variant); ambiguity is reported in `mapping_report.json`.
+- Step 03 `--mode verify` copies the recovered `Z_*.npy`; it does not retrain the encoder.
+- Step 04 trains fresh forests rather than loading the archived pickles.
+- Step 08 `--mode grouped` runs on **ChemBERTa** because the deployed model's 4,800-d GROVER matrix
+  is not deposited; the output is labelled and is not a substitute.
+- The two archived Zenodo copies of the endpoint checkpoint are **corrupt**; the working copy is in
+  `shared/sha256_manifest.txt`.
+- Claims that could not be reproduced are listed in `MANUSCRIPT_TO_CODE.md` (AUROC 0.84 at ≤1 µM;
+  Dmax R² 0.82 / 0.60 / 0.63; Fig 2f/2m source values).
+- Nothing is uploaded to GitHub or Zenodo; publication requires author authorization.

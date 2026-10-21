@@ -1,0 +1,5 @@
+split,n_train,n_test,train_unique_compounds,test_unique_compounds,shared_compound_ids_train_test,test_rows_sharing_compound_with_train,canon_overlap_train_test,test_overlap_external,train_overlap_external
+Random,7401,1851,4070,1439,921,1264,922,0,0
+Scaffold-held,8409,843,4375,212,0,0,0,0,0
+Target-held,7805,1447,4155,954,522,778,522,0,0
+E3-held (VHL),6687,2565,3289,1298,0,0,0,0,0

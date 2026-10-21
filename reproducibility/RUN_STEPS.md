@@ -1,0 +1,19 @@
+# Ordered reproduction steps
+
+| # | Script | Model folder | Purpose | Runtime outputs |
+|---|---|---|---|---|
+| 01 | `01_prepare_components.py` | endpoint_regression | component mapping + warhead/linker/E3 embeddings with compound IDs | `components_mapped.csv`, `component_embeddings.npz`, `mapping_report.json` |
+| 02 | `02_train_multitask_transformer.py` | endpoint_regression | 4-head Transformer, masked `L = L_DC50 + 0.01·L_Dmax` | `checkpoint_multitask.pt`, `training_log.json` |
+| 03 | `03_extract_embeddings.py` | endpoint_regression | fused 512-d features (verify saved / recompute) | `Z_*.npy`, `embedding_manifest.json` |
+| 04 | `04_train_rf_regressors.py` | endpoint_regression | DC50 + Dmax Random Forests (500/20) | `rf_*_trained.joblib`, `rf_training_report.json` |
+| 05 | `05_evaluate_regression.py` | endpoint_regression | R², RMSE, MAE, ρ, τ, Pearson per split | `regression_metrics.csv` |
+| 06 | `06_check_data_leakage.py` | endpoint_regression | compound-level overlap and external independence | `mapped_compound_order.csv`, `leakage_report.csv`, `leakage_v4_extras.json` |
+| 07 | `07_evaluate_external.py` | external_benchmark | funnel, per-comparator AUROC + leakage rules, denominators | `external_funnel_counts.csv`, `comparator_metrics.csv`, `comparator_denominators.json` |
+| 08 | `08_train_linker_classifier.py` | linker_multiclass | original (test-selected) protocol and grouped evaluation | `linker_original_metrics.json`, `linker_grouped_metrics.json`, `linker_grouped_oof.csv` |
+| 09 | `09_reproduce_figures.py` | figures | computational figures from saved predictions | `../figures/*.svg`, `*.png` |
+
+Runtime outputs are written to `reproducibility/outputs/`; figures to `reproducibility/figures/`.
+Both are git-ignored. The committed `splits/`, `predictions/` and `metrics/` folders hold the
+reference artifacts used for comparison.
+
+See `run_all.sh` for the light path, and each model folder's `README.md` for details.

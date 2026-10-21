@@ -1,0 +1,30 @@
+# Endpoint Transformer — production configuration (verified against the released checkpoint)
+model:
+  class: MultiTaskProtacModel
+  input_dim: 4800          # GROVER component embeddings (warhead | linker | E3)
+  hidden_dim: 512
+  n_heads: 4               # released checkpoint; an 8-head variant exists for the two-stage family
+  n_layers: 2
+  positional_embedding: false
+  attention_pooling: linear_softmax   # Linear(512 -> 1), softmax over the 3 tokens
+  heads:
+    dc50: [512, 256, relu, dropout(0.2), 1]
+    dmax: [512, 256, relu, dropout(0.2), 1]
+loss:
+  type: masked_mse
+  weights: {dc50: 1.0, dmax: 0.01}
+  masking: non_finite_targets_excluded
+optimizer: {name: AdamW, lr: 1.0e-4, weight_decay: 0.0}
+schedule: {grad_clip_norm: 1.0}
+training:
+  batch_size: 64
+  val_batch_size: 128
+  epochs: 100
+  early_stopping_patience: 15
+  monitor: val_loss
+  split: {train_val: 0.8, val: 0.2}
+seed: 42
+checkpoint:
+  released: models/multitask_transformer.pt
+  sha256: 630783ce2f6f26e779e6aae004e0b6827135819ba3be3a2c16f458ea999d6e05
+  params: 9026563

@@ -1,0 +1,104 @@
+{
+  "protocol": "GroupKFold by linker identity, train-only preprocessing, fixed hyperparameters",
+  "n": 2320,
+  "n_features": 384,
+  "n_groups": 846,
+  "class_counts": [
+    580,
+    580,
+    581,
+    579
+  ],
+  "auroc_macro_ovr": 0.803473320418439,
+  "auroc_weighted_ovr": 0.8034556649208383,
+  "macro_f1": 0.5196530371361894,
+  "balanced_accuracy": 0.5181056726459169,
+  "mcc": 0.3580225016376269,
+  "per_class_sensitivity": {
+    "0": 0.5465517241379311,
+    "1": 0.5327586206896552,
+    "2": 0.4939759036144578,
+    "3": 0.4991364421416235
+  },
+  "per_class_specificity": {
+    "0": 0.8816091954022989,
+    "1": 0.8155172413793104,
+    "2": 0.7947096032202415,
+    "3": 0.8655944859276278
+  },
+  "confusion_matrix": [
+    [
+      317,
+      99,
+      90,
+      74
+    ],
+    [
+      89,
+      309,
+      128,
+      54
+    ],
+    [
+      71,
+      117,
+      287,
+      106
+    ],
+    [
+      46,
+      105,
+      139,
+      289
+    ]
+  ],
+  "folds": [
+    {
+      "fold": 1,
+      "n_train": 1856,
+      "n_test": 464,
+      "train_groups": 677,
+      "test_groups": 169,
+      "group_overlap": 0,
+      "accuracy": 0.5086206896551724
+    },
+    {
+      "fold": 2,
+      "n_train": 1856,
+      "n_test": 464,
+      "train_groups": 677,
+      "test_groups": 169,
+      "group_overlap": 0,
+      "accuracy": 0.5086206896551724
+    },
+    {
+      "fold": 3,
+      "n_train": 1856,
+      "n_test": 464,
+      "train_groups": 677,
+      "test_groups": 169,
+      "group_overlap": 0,
+      "accuracy": 0.5452586206896551
+    },
+    {
+      "fold": 4,
+      "n_train": 1856,
+      "n_test": 464,
+      "train_groups": 677,
+      "test_groups": 169,
+      "group_overlap": 0,
+      "accuracy": 0.5043103448275862
+    },
+    {
+      "fold": 5,
+      "n_train": 1856,
+      "n_test": 464,
+      "train_groups": 676,
+      "test_groups": 170,
+      "group_overlap": 0,
+      "accuracy": 0.5237068965517241
+    }
+  ],
+  "representation": "ChemBERTa",
+  "caveat": "representation = ChemBERTa; the deployed model uses 4,800-d GROVER features. This evaluation is not a substitute for a GROVER grouped evaluation."
+}
