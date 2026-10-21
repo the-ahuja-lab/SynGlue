@@ -26,7 +26,7 @@ reproducibility/
 │   ├── splits/                      linker_cv_folds.csv
 │
 ├── external_benchmark/              comparator evaluation and external populations
-│   ├── README.md                    populations, leakage rules, AUROCs, denominators
+│   ├── README.md                    populations, comparators and leakage rules
 │   ├── scripts/                     07_evaluate_external.py
 │   ├── splits/                      external_test.csv
 │
@@ -59,7 +59,7 @@ reproducibility/
 | Task | DC50 (log10 nM) and Dmax (%) regression | 4-class DC50-derived linker potency |
 | Artifact | `multitask_transformer.pt` (9,026,563 params, SHA256 `630783ce…`) + `rf_dc50/rf_dmax.joblib` | `linker_classifier.pkl` (md5 `d5204351…`) |
 | Evaluation | random / scaffold / target / E3 splits | original (test-selected) + grouped GroupKFold |
-| Status | DC50 split metrics reproduced | protocol corrected; grouped AUROC 0.8035 (ChemBERTa) |
+| Status | separate model family; evaluated independently of the endpoint regressors |
 
 A third, separate family — an **8-head, 3-layer, positional-embedding** model (12,327,054 params) —
 belongs to the two-stage analysis and is kept in `legacy_code/model_code/`.
