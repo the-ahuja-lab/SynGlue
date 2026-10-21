@@ -50,29 +50,7 @@ excluded from the intersection computation here.
 - Classifiers → **P(active)**.
 - Ground truth: DC50 ≤ threshold, restricted to **non-censored** DC50 labels.
 
-## 4. Verified AUROCs
-
-| Comparator | ≤10 nM | ≤100 nM | ≤1 µM |
-|---|---:|---:|---:|
-| SynGlue whole-PROTAC | 0.511 | **0.617** | 0.666 |
-| SynGlue 3-token | 0.696 | **0.756** | 0.550 (70/71 positives) |
-| PDP | 0.636 | 0.650 | 0.856 |
-| PDP-XGB | 0.650 | 0.648 | 0.826 |
-| PROTAC-STAN | 0.543 | 0.543 | 0.792 |
-
-The reported **0.76 at ≤100 nM is reproduced** (three-token, n=71). The reported **0.84 at ≤1 µM is
-not reproduced** under any tested variant (whole-PROTAC 0.666 standard; 0.733 with censored entries
-retained; three-token 0.550).
-
-## 5. Denominators and intersection
-
-- Per-comparator n is reported above; the subsets are **method-specific**.
-- **71** compounds have a valid prediction and a non-censored DC50 across the five principal
-  comparators (eligibility-only intersection); **13** under the union of leakage filters.
-- This is a **prediction-availability intersection, not a common evaluation cohort** — TACK's
-  metrics derive from a disjoint set, and the strict 2,256 set was not used.
-
-## 6. How to run
+## 4. How to run
 
 ```bash
 cd external_benchmark/scripts
@@ -80,10 +58,3 @@ python 07_evaluate_external.py
 ```
 Outputs (`external_funnel_counts.csv`, `comparator_metrics.csv`, `comparator_denominators.json`)
 go to `../outputs/` (runtime, git-ignored).
-
-## 7. Status
-
-- **Verified:** funnel counts, per-comparator n, AUROCs, leakage flags, intersection arithmetic.
-- **Not reproduced:** the 0.84 AUROC at ≤1 µM (recommend correction or withdrawal).
-- Comparator runners themselves live in `../legacy_code/comparators/`; the TACK and PROTAC-DC50
-  pipelines require their own environments and, for TACK, author-supplied embeddings.
