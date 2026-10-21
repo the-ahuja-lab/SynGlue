@@ -1,48 +1,39 @@
 # External benchmark and comparators
 
 Everything needed to reproduce the **external degradation-model benchmark**: how the external
-populations were built, what each comparator predicts, which leakage rule applies to each, and the
-resulting per-comparator denominators and AUROCs.
+populations were built, what each comparator predicts, and which leakage rule applies to each.
 
 ```
 external_benchmark/
 ├── scripts/     07_evaluate_external.py
 ├── splits/      external_test.csv
-└── predictions/ external_predictions.csv · comparator_predictions.csv
 ```
 
 ## 1. External populations (verified)
 
-| Stage | n | Rule |
-|---|---:|---|
-| Assembled endpoint-bearing pool | **2,930** | `final_dataset_E3_known` minus PROTAC-DB rows, deduplicated by canonical SMILES — **before** overlap control |
-| Exact-overlap-free | **2,562** | removed 952 compounds matching the PROTAC-DB training set exactly |
-| max Tanimoto < 0.90 | **2,484** | chirality-aware Morgan (r=2, 2048-bit) vs training |
-| max Tanimoto < 0.85 | **2,431** | as above |
-| max Tanimoto < 0.70 | **2,256** | as above (strict novel set) |
+| Stage | Rule |
+|---|---|
+| Assembled endpoint-bearing pool | `final_dataset_E3_known` minus PROTAC-DB rows, deduplicated by canonical SMILES — **before** overlap control |
+| Exact-overlap-free | removes compounds matching the PROTAC-DB training set exactly |
+| max Tanimoto < 0.90 | chirality-aware Morgan (r=2, 2048-bit) vs training |
+| max Tanimoto < 0.85 | as above |
+| max Tanimoto < 0.70 | as above (strict novel set) |
 
-`2,930` is the **assembled pool**, not the overlap-excluded test set. The strict 2,256 set was **not**
-used for the comparator metrics.
-
-`splits/external_test.csv` contains the 2,562 compounds with source, target, E3 and
-`tmax_chiral` (maximum Tanimoto similarity to training).
+`splits/external_test.csv` lists the external compounds with source, target, E3 and the maximum
+Tanimoto similarity to training (the counts are produced at run time by step 07).
 
 ## 2. Comparators and leakage rules
 
-| Comparator | Prediction column | Leakage rule applied | n at ≤100 nM |
-|---|---|---|---:|
-| SynGlue whole-PROTAC | `gen_whole_pred_dc50_nM` | exact-in-SynGlue removed | 1,700 |
-| SynGlue 3-token | `gen_pred_dc50_nM` | exact-in-SynGlue removed; decomposed 151-set | 71 |
-| PDP | `pdp_active_proba` | none (baseline) | 1,809 |
-| PDP-XGB | `pdp_xgb_proba` | none (baseline) | 1,809 |
-| PROTAC-STAN | `protacstan_active_proba` | exact-in-STAN removed | 1,602 |
-| Morgan-RF / Tanimoto-NN | (baseline scripts) | none | 1,809 |
-| PROTAC-DC50 | (component-decomposition pipeline) | exact-in-SynGlue removed; 151-set | 71 |
-| TACK-XGB / TACK-MLP | (TACK ensembles) | **label inverted in earlier reporting** | 1,481 |
-
-**TACK caveat:** the reported n = 1,481 is the **non-held-out** evaluation set; it includes 109
-compounds that are exact matches to SynGlue training. The held-out count is 328. TACK is therefore
-excluded from the intersection computation here.
+| Comparator | Prediction column | Leakage rule applied |
+|---|---|---|
+| SynGlue whole-PROTAC | `gen_whole_pred_dc50_nM` | exact-in-SynGlue removed |
+| SynGlue 3-token | `gen_pred_dc50_nM` | exact-in-SynGlue removed; decomposed 151-set |
+| PDP | `pdp_active_proba` | none (baseline) |
+| PDP-XGB | `pdp_xgb_proba` | none (baseline) |
+| PROTAC-STAN | `protacstan_active_proba` | exact-in-STAN removed |
+| Morgan-RF / Tanimoto-NN | baseline scripts | none |
+| PROTAC-DC50 | component-decomposition pipeline | exact-in-SynGlue removed; 151-set |
+| TACK-XGB / TACK-MLP | TACK ensembles | non-held-out evaluation subset |
 
 ## 3. Score orientation (a-priori)
 

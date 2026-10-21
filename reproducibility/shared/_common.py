@@ -31,10 +31,10 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 
 
 def _find_repo_root(start):
-    """Walk upward until the bundle root (marked by MANUSCRIPT_TO_CODE.md) is found."""
+    """Walk upward until the bundle root (marked by RUN_STEPS.md) is found."""
     d = start
     for _ in range(6):
-        if os.path.exists(os.path.join(d, "MANUSCRIPT_TO_CODE.md")):
+        if os.path.exists(os.path.join(d, "RUN_STEPS.md")):
             return d
         d = os.path.dirname(d)
     return start

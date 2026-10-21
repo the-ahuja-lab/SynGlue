@@ -18,7 +18,7 @@ shared/
 
 ## Path resolution
 
-`_common.py` finds the bundle root by walking upward for `MANUSCRIPT_TO_CODE.md`, then exposes:
+`_common.py` finds the bundle root by walking upward for `RUN_STEPS.md`, then exposes:
 
 | Variable | Default | Purpose |
 |---|---|---|
