@@ -141,6 +141,10 @@ def fig_activity_density():
 def fig_linker_roc():
     p = os.path.join(C.RESULTS, "linker_grouped_oof.csv")
     if not os.path.exists(p):
+        alt = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(
+            os.path.abspath(__file__)))), "outputs", "linker_grouped_oof.csv")
+        p = alt if os.path.exists(alt) else p
+    if not os.path.exists(p):
         print("  [linker ROC] run 08_train_linker_classifier.py --mode grouped first"); return
     from sklearn.metrics import roc_curve, auc
     d = pd.read_csv(p)

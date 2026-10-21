@@ -9,7 +9,6 @@ linker_multiclass/
 ├── scripts/     08_train_linker_classifier.py
 ├── configs/     linker_classifier.yaml
 ├── splits/      linker_cv_folds.csv
-├── predictions/ linker_oof_predictions.csv
 └── (metrics written to ../outputs/ at run time)
 ```
 
@@ -41,20 +40,7 @@ linker_multiclass/
 | `--mode original` | RandomizedSearchCV (5-fold, `roc_auc_ovr`) on the training partition; **model selection by test AUC** | reproduces the deposited protocol so its bias is visible |
 | `--mode grouped` | GroupKFold by linker identity, train-only preprocessing, fixed hyperparameters, out-of-fold predictions | valid grouped evaluation |
 
-## 4. Predictions and metrics
-
-- `predictions/linker_oof_predictions.csv` — out-of-fold probabilities per class, true label, pred, group.
-
-| Evaluation | AUROC | Notes |
-|---|---:|---|
-| Original, test-selected (deployed GB) | **0.8013** | optimistically biased; selection used test AUC |
-| Original, median of ten models on one fixed 464-row test set | **0.7975** | a repeated test-set evaluation, **not** cross-validation |
-| Grouped, 5-fold by linker identity (ChemBERTa) | **0.8035** | macro OVR; macro-F1 0.5197; balanced acc 0.5181; MCC 0.3580; zero group overlap |
-| Mordred representation, fold-level (reference) | 0.745 validation / 0.733 test | different representation |
-
-Per-class sensitivity (grouped): 0.547 / 0.533 / 0.494 / 0.499; specificity 0.882 / 0.816 / 0.795 / 0.866.
-
-## 5. How to run
+## 4. How to run
 
 ```bash
 cd linker_multiclass/scripts

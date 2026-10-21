@@ -8,7 +8,6 @@ SynGlue manuscript.
 ```
 reproducibility/
 ├── README.md                        this file
-├── MANUSCRIPT_TO_CODE.md            claim → code → artifact → status map
 ├── MANIFEST.csv                     every file with SHA256 + original source path
 ├── RUN_STEPS.md                     the nine ordered steps and their outputs
 ├── run_all.sh                       runs the light steps in order
@@ -19,24 +18,17 @@ reproducibility/
 │   ├── configs/                     transformer.yaml · rf_dc50.yaml · rf_dmax.yaml
 │   ├── splits/                      transformer_train_val.csv · rf_train_test.csv ·
 │   │                                scaffold_test.csv · target_test.csv
-│   ├── predictions/                 dc50_predictions.csv · dmax_predictions.csv
-│   └── metrics/                     regression_metrics_recovered.csv · leakage_report.csv
 │
 ├── linker_multiclass/               MODEL 2 — independent 4-class linker classifier
 │   ├── README.md                    model, features, protocols, metrics, limitations
 │   ├── scripts/                     08_train_linker_classifier.py
 │   ├── configs/                     linker_classifier.yaml
 │   ├── splits/                      linker_cv_folds.csv
-│   ├── predictions/                 linker_oof_predictions.csv
-│   └── metrics/                     linker_grouped_metrics.json
 │
 ├── external_benchmark/              comparator evaluation and external populations
 │   ├── README.md                    populations, leakage rules, AUROCs, denominators
 │   ├── scripts/                     07_evaluate_external.py
 │   ├── splits/                      external_test.csv
-│   ├── predictions/                 external_predictions.csv · comparator_predictions.csv
-│   └── metrics/                     comparator_metrics.csv · comparator_denominators.json ·
-│                                    external_funnel_counts.csv
 │
 ├── figures/                         computational figure generation
 │   ├── README.md                    figure list + manuscript panel mapping
@@ -84,6 +76,3 @@ export GROVER_CKPT=/path/to/grover_fixed.pt     # step 01 only
 bash reproducibility/run_all.sh                 # steps 05–09 on available artifacts
 python reproducibility/tests/../tests -m pytest # verification suite
 ```
-
-
-

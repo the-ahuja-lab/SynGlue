@@ -9,8 +9,6 @@ endpoint_regression/
 ├── scripts/     01_prepare_components.py … 06_check_data_leakage.py
 ├── configs/     transformer.yaml · rf_dc50.yaml · rf_dmax.yaml
 ├── splits/      transformer_train_val.csv · rf_train_test.csv · scaffold_test.csv · target_test.csv
-├── predictions/ dc50_predictions.csv · dmax_predictions.csv
-└── metrics/     regression_metrics_recovered.csv
 ```
 
 ## 1. Architecture 
