@@ -1,0 +1,25 @@
+{
+  "main_environment": {
+    "python": "3.10.20",
+    "numpy": "2.2.6",
+    "pandas": "2.3.3",
+    "scikit_learn": "1.7.2",
+    "scipy": "1.15.3",
+    "matplotlib": "3.10.9",
+    "torch": "2.12.1+cu130",
+    "rdkit": "2024.09.6"
+  },
+  "legacy_environment": {
+    "python": "3.10.20",
+    "numpy": "1.21.5",
+    "scikit_learn": "1.0.2",
+    "scipy": "1.7.3",
+    "joblib": "1.5.3"
+  },
+  "notes": {
+    "grover": "patched GROVER checkout required for 4,800-d embeddings; pin commit + grover_fixed.pt hash",
+    "admet": "admet_ai==1.4.0 in a separate environment (subprocess bridge)",
+    "linker_classifier": "pickle requires scikit-learn<=1.1 (sklearn.ensemble._gb_losses) plus a numpy random-state shim; see scripts/08 and environment/README notes",
+    "random_forests": "production rf_*.joblib load under modern scikit-learn with a version warning; stage2_rf_*.joblib require the legacy environment"
+  }
+}

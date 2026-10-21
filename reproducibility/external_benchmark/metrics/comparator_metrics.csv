@@ -1,0 +1,16 @@
+comparator,threshold_nM,n,n_pos,AUROC,leakage_rule
+SynGlue whole-PROTAC,10,1700,908,0.511111945445646,exact-in-SynGlue removed
+SynGlue whole-PROTAC,100,1700,1539,0.6170135483636628,exact-in-SynGlue removed
+SynGlue whole-PROTAC,1000,1700,1658,0.665905566086507,exact-in-SynGlue removed
+SynGlue 3-token,10,71,37,0.6963434022257552,exact-in-SynGlue removed; decomposed 151-set
+SynGlue 3-token,100,71,57,0.7556390977443609,exact-in-SynGlue removed; decomposed 151-set
+SynGlue 3-token,1000,71,70,0.55,exact-in-SynGlue removed; decomposed 151-set
+PDP,10,1809,924,0.6357980531709345,none (baseline)
+PDP,100,1809,1591,0.6498797709593527,none (baseline)
+PDP,1000,1809,1748,0.8560040514686573,none (baseline)
+PDP-XGB,10,1809,924,0.650283708758285,none (baseline)
+PDP-XGB,100,1809,1591,0.6481066088490881,none (baseline)
+PDP-XGB,1000,1809,1748,0.826086956521739,none (baseline)
+PROTAC-STAN,10,1602,879,0.5433450246020171,exact-in-STAN removed
+PROTAC-STAN,100,1602,1461,0.5433638671656934,exact-in-STAN removed
+PROTAC-STAN,1000,1602,1576,0.7919757907067553,exact-in-STAN removed

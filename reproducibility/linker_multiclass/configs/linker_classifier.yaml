@@ -1,0 +1,16 @@
+# Linker multiclass classifier (independent model family)
+features:
+  deployed: {representation: GROVER, dim: 4800}
+  available: {representation: ChemBERTa, dim: 384, note: used for the grouped evaluation in this bundle}
+labels: {task: four_class_DC50, classes: [0, 1, 2, 3], counts: [580, 580, 581, 579]}
+model:
+  class: GradientBoostingClassifier
+  params: {n_estimators: 228, max_depth: 7, min_samples_leaf: 9, min_samples_split: 13,
+           max_features: log2, learning_rate: 0.05, random_state: 42}
+preprocessing: {imputer: mean, scaler: standard, fit_on: train_only}
+protocols:
+  original: {split: {test_size: 0.2, stratify: true, random_state: 42},
+             tuning: {method: RandomizedSearchCV, cv: 5, scoring: roc_auc_ovr},
+             selection: test_auc, note: "reproduces the deposited protocol; the reported 0.801 is test-selected"}
+  grouped: {splitter: GroupKFold, n_splits: 5, group: linker_identity,
+            tuning: fixed_hyperparameters, note: "valid grouped evaluation; ChemBERTa unless GROVER matrix is supplied"}

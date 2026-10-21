@@ -1,0 +1,14 @@
+outputs/
+figures/
+*.pt
+*.pth
+*.joblib
+*.pkl
+*.npy
+*.npz
+*.xlsx
+*.sdf
+__pycache__/
+.pytest_cache/
+.ipynb_checkpoints/
+!MANIFEST.csv

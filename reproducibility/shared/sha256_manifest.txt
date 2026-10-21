@@ -1,0 +1,9 @@
+# sha256  artifact  # description
+630783ce2f6f26e779e6aae004e0b6827135819ba3be3a2c16f458ea999d6e05  multitask_transformer.pt  # released endpoint encoder (4 heads, 2 layers, 9,026,563 params)
+3574b3b79bb39882469645164ef5c5997d42ae5c61f9a0037d8d9bc0768281c2  protac_attention_model.pt  # compound-level pipeline encoder (32 keys, 8,894,978 params)
+fc17095499b376dbee227e1021b497ea8af53ec3fdf068fcd38dfc7693907e10  rf_dc50.joblib  # production DC50 RF (500/20/512)
+5df8d3f0f5346f98792d61db1ea71cd050d325e0e3b5838090fdf853b99e4633  rf_dmax.joblib  # production Dmax RF (500/20/512)
+ddd93eaddd4bff81605b7dbfb6ce92fbd56f496dab290d8c265c88b4d25f1171  stage2_rf_dc50.joblib  # compound-level DC50 RF (500/20/512)
+f42798532c0269d2ab4fb8ec3ffc548cc7d98a781f722dd2bdaba1c00730faa0  stage2_rf_dmax.joblib  # compound-level Dmax RF (500/20/512)
+6256228ac5b80ce9fd66dea80457c9428cdac64d254d946ea266ec94c4c65471  grover_fixed.pt  # GROVER featuriser checkpoint
+8796a89259da25d43bdcf10fe65882a6496f8175ba35ada4cc7de291728d08d2  linker_classifier.pkl  # linker multiclass classifier (4,800 features)

@@ -1,0 +1,6 @@
+stage,n
+assembled pool (pre-overlap),2930
+exact-overlap-free,2562
+max Tanimoto < 0.90,2484
+max Tanimoto < 0.85,2431
+max Tanimoto < 0.70,2256
