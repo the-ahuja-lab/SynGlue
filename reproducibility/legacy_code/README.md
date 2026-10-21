@@ -15,7 +15,6 @@ reproduction path is in `../endpoint_regression/`, `../linker_multiclass/`,
 | `pipeline/` | TRIE index, target mapping, generative pipeline, embedding benchmark |
 | `plots/` | figure and panel generators (venns, heatmaps, SI composites, box plots) |
 | `misc/` | smaller utility scripts not matching a primary pattern |
-| `notebooks/` | provenance table for the source notebooks (not copied; they contain large outputs) |
 
 `MANIFEST.csv` at the bundle root maps every file to its original repository-relative path with a
 SHA256, so each script is traceable to the exact source revision.

@@ -63,15 +63,3 @@ python 08_train_linker_classifier.py --mode original   # deposited (test-selecte
 ```
 Outputs (`linker_grouped_metrics.json`, `linker_grouped_oof.csv`, `linker_original_metrics.json`)
 are written to `../outputs/` (runtime, git-ignored).
-
-## 6. Status and limitations
-
-- **Verified:** artifact identity, hyperparameters, feature dimension (4,800 in the artifact),
-  class distribution, grouped evaluation with zero group overlap.
-- **Protocol corrections required in the manuscript:** (i) selection used **test AUC**; (ii) the
-  "ten-fold cross-validation" is a **repeated fixed-test evaluation**; (iii) **Boruta was not run**
-  (all 4,800 features retained); (iv) tuning used **RandomizedSearchCV**, not GridSearchCV.
-- **Grouped evaluation is on ChemBERTa**, not the deployed GROVER representation — it is supporting
-  evidence, not a substitute. A GROVER grouped evaluation requires the 4,800-d feature matrix.
-- The pickle loads only with a numpy random-state shim under scikit-learn ≤ 1.1; see
-  `../shared/environment/README.md`.

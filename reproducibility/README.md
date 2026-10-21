@@ -52,7 +52,7 @@ reproducibility/
 │                                    test_prediction_reproduction.py · test_metrics.py
 │
 ├── legacy_code/                     full role-based code library
-│   └── model_code/ analysis/ comparators/ data_prep/ inference/ pipeline/ plots/ misc/ notebooks/
+│   └── model_code/ analysis/ comparators/ data_prep/ inference/ pipeline/ plots/ misc/
 │
 ├── outputs/                         runtime outputs (git-ignored)
 └── figures/                         runtime figures (git-ignored)
