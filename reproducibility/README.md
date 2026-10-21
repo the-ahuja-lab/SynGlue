@@ -1,7 +1,7 @@
 # SynGlue — reproducibility bundle (organised by model)
 
 Reproduction code, configurations, splits, predictions, metrics, tests and environments for the
-SynGlue manuscript. **Code and metadata only** — no model binaries, no datasets, no figure outputs.
+SynGlue manuscript.
 
 ## Layout — one folder per model
 
