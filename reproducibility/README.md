@@ -85,26 +85,5 @@ bash reproducibility/run_all.sh                 # steps 05–09 on available art
 python reproducibility/tests/../tests -m pytest # verification suite
 ```
 
-## Verified in this environment
 
-| Step | Result |
-|---|---|
-| 06 leakage | mapped rows 9,252; Random shares **921** compound IDs (1,264 test rows); Target **522** (778); Scaffold/E3 **0**; external overlap **0** |
-| 07 external | funnel **2,930 → 2,562 → 2,484 / 2,431 / 2,256**; AUROC ≤100 nM: SynGlue three-token **0.756** (n=71), whole-PROTAC **0.617** (n=1,700), PDP 0.650, PDP-XGB 0.648, PROTAC-STAN 0.543 |
-| 08 linker (grouped) | ChemBERTa, 5-fold GroupKFold by linker identity, zero overlap: macro OVR AUROC **0.8035**, macro-F1 0.5197, MCC 0.3580 |
-| 05 regression | Random **0.7568** (n=381), Scaffold **0.5665** (n=173), Target **0.8264** (n=277), E3 −0.154 (n=719) |
-| tests | 7 passed, 3 skipped |
 
-## Honest limitations
-
-- Step 01 implements the deposited **first-match** mapping (`--structure-map` gives the
-  structure-based variant); ambiguity is reported in `mapping_report.json`.
-- Step 03 `--mode verify` copies the recovered `Z_*.npy`; it does not retrain the encoder.
-- Step 04 trains fresh forests rather than loading the archived pickles.
-- Step 08 `--mode grouped` runs on **ChemBERTa** because the deployed model's 4,800-d GROVER matrix
-  is not deposited; the output is labelled and is not a substitute.
-- The two archived Zenodo copies of the endpoint checkpoint are **corrupt**; the working copy is in
-  `shared/sha256_manifest.txt`.
-- Claims that could not be reproduced are listed in `MANUSCRIPT_TO_CODE.md` (AUROC 0.84 at ≤1 µM;
-  Dmax R² 0.82 / 0.60 / 0.63; Fig 2f/2m source values).
-- Nothing is uploaded to GitHub or Zenodo; publication requires author authorization.
