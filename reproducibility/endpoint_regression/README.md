@@ -13,7 +13,7 @@ endpoint_regression/
 └── metrics/     regression_metrics_recovered.csv
 ```
 
-## 1. Architecture (verified against the released checkpoint)
+## 1. Architecture 
 
 | Element | Value |
 |---|---|
@@ -31,8 +31,6 @@ endpoint_regression/
 | Split | 80:20, seed 42 |
 | RF heads | `RandomForestRegressor(n_estimators=500, max_depth=20, random_state=42)` on the fused 512-d representation |
 
-A second, **8-head / 3-layer / positional-embedding** model (12,327,054 parameters) belongs to a
-separate two-stage result family and is not the production endpoint model.
 
 ## 2. Pipeline stages
 
@@ -45,7 +43,7 @@ separate two-stage result family and is not the production endpoint model.
 | 05 | `05_evaluate_regression.py` | recompute R², RMSE, MAE, Spearman, Kendall, Pearson per split |
 | 06 | `06_check_data_leakage.py` | compound-level overlap across train/test and against the external benchmark |
 
-## 3. Splits (provided)
+## 3. Splits 
 
 | File | Content | Size |
 |---|---|---|
@@ -55,30 +53,12 @@ separate two-stage result family and is not the production endpoint model.
 | `splits/target_test.csv` | target-held-out test compounds | 1,447 |
 | `../shared/mapped_index.csv` | full 9,252-row index with component IDs and canonical SMILES | 9,252 |
 
-**Independence (verified by step 06):**
-
-| Split | Shared compound IDs (train ∩ test) | Test rows sharing a compound | Test ∩ external | Train ∩ external |
-|---|---:|---:|---:|---:|
-| Random | **921** | 1,264 | 0 | 0 |
-| Scaffold-held | **0** | 0 | 0 | 0 |
-| Target-held | **522** | 778 | 0 | 0 |
-| E3-held (VHL) | **0** | 0 | 0 | 0 |
-
-→ Random and Target are **row-level** splits (not compound-disjoint); Scaffold and E3 are
-compound-disjoint. External overlap is zero in every split for this pipeline.
 
 ## 4. Predictions and metrics
 
 - `predictions/dc50_predictions.csv`, `predictions/dmax_predictions.csv` — saved test predictions
   (true / pred) from the compound-level pipeline.
-- `metrics/regression_metrics_recovered.csv` — the recovered per-split table.
 
-| Split | DC50 R² | n | Dmax R² | n |
-|---|---:|---:|---:|---:|
-| Random | **0.7568** | 381 | 0.6810 | 234 |
-| Scaffold-held | **0.5665** | 173 | 0.0479 | 105 |
-| Target-held | **0.8264** | 277 | 0.1732 | 197 |
-| E3-held (VHL) | −0.154 | 719 | −0.436 | 498 |
 
 ## 5. How to run
 
@@ -93,15 +73,5 @@ python 04_train_rf_regressors.py
 ```
 Outputs go to `../outputs/` (runtime, git-ignored).
 
-## 6. Status and limitations
 
-- **Verified:** checkpoint identity/architecture, fused-matrix shapes, RF parameters, split
-  independence, DC50 split metrics.
-- **Row-level splits:** Random (0.76) and Target (0.83) are not compound-disjoint estimates.
-- **Training population:** the notebook tensor is 142,727 rows (12,843 DC50 / 8,520 Dmax valid label
-  rows; 4,585 unique compounds), whereas the compound-level pipeline used 9,252 mapped rows
-  (1,914 DC50-labelled). The manuscript's 2,446 / 1,728 are curated source records, not the tensor.
-- **Component mapping:** the deposited first-match rule is underdetermined (79.6% warhead ambiguity,
-  98.7% E3 ambiguity); `--structure-map` provides the structure-based alternative.
-- **v4 retrain leakage:** 19 unique DC50 / 14 Dmax external compounds (32 / 31 rows) were present in
-  training in the v4 pipeline; the compound-level pipeline here has zero external overlap.
+
