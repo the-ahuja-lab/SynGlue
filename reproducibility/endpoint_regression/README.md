@@ -31,7 +31,6 @@ endpoint_regression/
 | Split | 80:20, seed 42 |
 | RF heads | `RandomForestRegressor(n_estimators=500, max_depth=20, random_state=42)` on the fused 512-d representation |
 
-
 ## 2. Pipeline stages
 
 | Step | Script | Purpose |
@@ -53,14 +52,7 @@ endpoint_regression/
 | `splits/target_test.csv` | target-held-out test compounds | 1,447 |
 | `../shared/mapped_index.csv` | full 9,252-row index with component IDs and canonical SMILES | 9,252 |
 
-
-## 4. Predictions and metrics
-
-- `predictions/dc50_predictions.csv`, `predictions/dmax_predictions.csv` — saved test predictions
-  (true / pred) from the compound-level pipeline.
-
-
-## 5. How to run
+## 4. How to run
 
 ```bash
 cd endpoint_regression/scripts
@@ -72,6 +64,3 @@ python 03_extract_embeddings.py --mode verify
 python 04_train_rf_regressors.py
 ```
 Outputs go to `../outputs/` (runtime, git-ignored).
-
-
-
